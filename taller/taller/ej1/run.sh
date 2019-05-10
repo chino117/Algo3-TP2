@@ -1,0 +1,1 @@
+make && cat $1 | ./ej1 $2 > output_temp.txt && python3 visualizar_instancia.py $1 output_temp.txt && rm output_temp.txt

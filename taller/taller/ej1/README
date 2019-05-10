@@ -1,0 +1,9 @@
+Para ejecutar el ejercicio 1 (Clustering) ejecutar en la consola:
+	sh run.sh <path_instancia> <K>
+
+path_instancia: es la ruta a una de las instancias del directorio homónimo
+K: es el parámetro de implementación de la técnica (el umbral a partir del cuál se vuelven inconsistentes las aristas).
+
+Ejemplo:
+
+	sh run.sh instancias/espiral.txt 2.0
