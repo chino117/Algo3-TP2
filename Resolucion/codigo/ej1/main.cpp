@@ -54,7 +54,7 @@ unsigned int internal_diff(unsigned int i, unsigned int j){
 vector<eje> segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U){
     vector<eje> T;
 
-    for(int i = 0;i < E.size();i++){
+    for(unsigned int i = 0;i < E.size();i++){
         auto o_q = E[i];
         auto componente_v = U->find(v(o_q));
         auto componente_w = U->find(w(o_q));
@@ -66,14 +66,15 @@ vector<eje> segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U){
 /*       * Que guardamos en caso de merge? */
 /*       * Que devolvemos? */
 
-        }
     }
 
     return T;
 }
 
-vector<eje> segmentar(const Matriz& m){
-    unsigned int n = unsigned int(m.size() * m[0].size());
+vector<eje> segmentar(const matriz& m){
+    unsigned int n = m.size() * m[0].size();
+    int alto = m.size();
+    int ancho = m[0].size();
 
     // Armamos lista de aristas
     vector<eje> E;
@@ -94,7 +95,8 @@ vector<eje> segmentar(const Matriz& m){
     /* cout<<endl; */
 
     // Creamos el disjoint_set aca para que el algoritmo sea igual sin importar la implementacion
-    shared_ptr<disjoint_set> U = new disjoint_set_arreglo();
+    shared_ptr<disjoint_set> U;
+    /* shared_ptr<disjoint_set> U(new disjoint_set_arreglo()); */
     //shared_ptr<disjoint_set> U = new disjoint_set_arbol();
     //shared_ptr<disjoint_set> U = new disjoint_set_arbol_optimizado();
 
@@ -113,16 +115,23 @@ int main(int argc, char** argv){
     int ancho = atoi(argv[1]);
     int alto = atoi(argv[2]);
 
+    int metodo = atoi(argv[argc-2]);
+    int k = atoi(argv[argc-1]);
+
     matriz m(alto, vector<int>(ancho, 0));
 
     for(int i = 0; i < alto;i++)
         for(int j = 0; j < ancho;j++)
             m[i][j] = atoi(argv[3 + i*alto + j]);
 
-    /* mostrar_matriz(m); */
+    cout<<"Ancho: "<<ancho<<endl;
+    cout<<"Alto: "<<alto<<endl;
+    cout<<"Metodo: "<<metodo<<endl;
+    cout<<"k: "<<k<<endl;
+    mostrar_matriz(m);
 
     // Terminamos de leer
-    segmentar(m);
+    /* segmentar(m); */
 
         
     return 0;
