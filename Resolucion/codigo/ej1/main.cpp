@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <stdlib.h>
 #include <tuple>
@@ -19,7 +20,7 @@ unsigned int u(const eje& e){return get<2>(e);}
 void mostrar_matriz(const matriz& m){
     for(auto& i : m){
         for(auto& j : i)
-            cout<<j<<" ";
+            cout<<setw(3)<<j<<" ";
         cout<<endl;
     }
 }
@@ -53,9 +54,7 @@ unsigned int internal_diff(unsigned int i, unsigned int j, const vector<unsigned
 // Por cada componente necesitamos (ademas de lo provisto por disjoint_set) la
 // cantidad de elementos dentro de la componente(agregado a disjoint_set) y la
 // arista de peso maximo contenida en la componente (eso se mantiene aca)
-vector<eje> segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U, int n, int k){
-    vector<eje> T;
-
+void segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U, int n, int k){
     vector<unsigned int> w_max_x_comp(n, 0);
 
     for(unsigned int i = 0;i < E.size();i++){
@@ -76,11 +75,9 @@ vector<eje> segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U, int n, int
                 w_max_x_comp[componente_v] = w(o_q);
         }
     }
-
-    return T;
 }
 
-vector<eje> segmentar(const matriz& m, int k, int metodo){
+void segmentar(const matriz& m, int k, int metodo){
     int alto = m.size();
     int ancho = m[0].size();
     unsigned int n = m.size() * m[0].size();
@@ -106,43 +103,64 @@ vector<eje> segmentar(const matriz& m, int k, int metodo){
     // Creamos el disjoint_set aca para que el algoritmo sea igual sin importar la implementacion
     /* shared_ptr<disjoint_set> U; */
     shared_ptr<disjoint_set> U;
-    if(metodo == 0)
+    switch(metodo){
+        case 0:
         U.reset(new disjoint_set_arreglo());
-    //shared_ptr<disjoint_set> U = new disjoint_set_arbol();
-    //shared_ptr<disjoint_set> U = new disjoint_set_arbol_optimizado();
+            break;
+        case 1:
+            break;
+            // Descomentar lo de abajo cuando se lo implemente
+            //shared_ptr<disjoint_set> U = new disjoint_set_arbol();
+        case 2:
+            // Descomentar lo de abajo cuando se lo implemente
+            //shared_ptr<disjoint_set> U = new disjoint_set_arbol_optimizado();
+            break;
+        default:
+            cout<<"ERROR: Parametro de metodo incorrecto"<<endl;
+            exit(-1);
+            break;
+    }
 
-    U->create(n);// alto * ancho
+    U->create(n);
 
-    return segmentar_aux(E, U, n, k);
+    segmentar_aux(E, U, n, k);
+
+    matriz res(alto, vector<int>(ancho, 0));
+    for(int i = 0;i < alto; i++)
+        for(int j = 0;j < ancho;j++)
+            res[i][j] = U->find(i*ancho + j); 
+
+    cout<<"Matriz de la imagen segmentada"<<endl;
+    mostrar_matriz(res);
 }
 
 int main(int argc, char** argv){
 
-    if (argc < 3){
-        cout<<"ERROR: Faltan argumentos"<<endl;
+    int metodo, k;
+    if(argc > 2){ // Si pasan los parametros adicionales
+        metodo = atoi(argv[argc-2]);
+        k = atoi(argv[argc-1]);
+    }
+    else{
+        metodo = 0;
+        k = 10;
     }
 
-    // Leemos datos entrada
-    int ancho = atoi(argv[1]);
-    int alto = atoi(argv[2]);
-
-    int metodo = atoi(argv[argc-2]);
-    int k = atoi(argv[argc-1]);
+    int alto, ancho;
+    cin >> alto >> ancho;
 
     matriz m(alto, vector<int>(ancho, 0));
 
     for(int i = 0; i < alto;i++)
         for(int j = 0; j < ancho;j++)
-            m[i][j] = atoi(argv[3 + i*alto + j]);
+            cin >> m[i][j];
 
-    cout<<"Ancho: "<<ancho<<endl;
-    cout<<"Alto: "<<alto<<endl;
-    cout<<"Metodo: "<<metodo<<endl;
-    cout<<"k: "<<k<<endl;
+    cout<<"Ancho: "<<ancho<<"| Alto: "<<alto<<"| Metodo: "<<metodo<<"| k: "<<k<<endl;
+    cout<<"Matriz de la imagen: "<<endl;
     mostrar_matriz(m);
 
     // Terminamos de leer
-    /* segmentar(m, k, metodo); */
+    segmentar(m, k, metodo);
 
         
     return 0;
