@@ -27,7 +27,7 @@ string nombres_metodos[3] = {
                             };
 
 void escribir_tiempo(milisegundos medicion, int k, int metodo){
-    string path = "tiempos.csv";
+    string path = "ej1_tiempos.csv";
     fstream f;
     f.open(path, fstream::out | fstream::app);
 
@@ -117,13 +117,7 @@ milisegundos segmentar(const matriz& m, int k, int metodo){
     // Ordenamos lista de aristas por peso
     sort(E.begin(), E.end());
     
-    /* Mostramos lista de aristas */
-    /* for(auto& i : E) */
-    /*     cout<<"("<<v(i)<<", "<<u(i)<<", "<<w(i)<<") "; */
-    /* cout<<endl; */
-
     // Creamos el disjoint_set aca para que el algoritmo sea igual sin importar la implementacion
-    /* shared_ptr<disjoint_set> U; */
     shared_ptr<disjoint_set> U;
     switch(metodo){
         case 0:
@@ -153,7 +147,6 @@ milisegundos segmentar(const matriz& m, int k, int metodo){
     auto end_time = chrono::steady_clock::now();
     auto diff_time = end_time - start_time;
 
-    /* cout<<"Matriz de la imagen segmentada"<<endl; */
     mostrar_matriz(res);
 
     return milisegundos(diff_time);
@@ -179,10 +172,6 @@ int main(int argc, char** argv){
     for(int i = 0; i < alto;i++)
         for(int j = 0; j < ancho;j++)
             cin >> m[i][j];
-
-    /* cout<<"Ancho: "<<ancho<<"| Alto: "<<alto<<"| Metodo: "<<metodo<<"| k: "<<k<<endl; */
-    /* cout<<"Matriz de la imagen: "<<endl; */
-    //mostrar_matriz(m);
 
     escribir_tiempo(segmentar(m, k, metodo), k, metodo);
         

@@ -82,9 +82,9 @@ class disjoint_set_arbol : public disjoint_set{
             return tam_arbs[c];
         }
     private:
-		//En la i-esima posicion de arboles hay un valor j, significa que el padre de i es j
-		//La raiz de un arbol se identifica cuando dado i entre 1 y n, i es padre de si mismo
-		//Tanto tam_arbs como ranks, en la posiciones donde hay una raiz, estan la cantidad de nodos del arbol y rank de dicha raiz
+        //En la i-esima posicion de arboles hay un valor j, significa que el padre de i es j
+        //La raiz de un arbol se identifica cuando dado i entre 1 y n, i es padre de si mismo
+        //Tanto tam_arbs como ranks, en la posiciones donde hay una raiz, estan la cantidad de nodos del arbol y rank de dicha raiz
         vector<unsigned int> arboles;
         vector<unsigned int> tam_arbs;
         vector<unsigned int> ranks;
@@ -127,9 +127,9 @@ class disjoint_set_arbol_optimizado : public disjoint_set{
             return tam_arbs[c];
         }
     private:
-		//En la i-esima posicion de arboles hay un valor j, significa que el padre de i es j
-		//La raiz de un arbol se identifica cuando dado i entre 1 y n, i es padre de si mismo
-		//Tanto tam_arbs como ranks, en la posiciones donde hay una raiz, estan la cantidad de nodos del arbol y rank de dicha raiz
+        //En la i-esima posicion de arboles hay un valor j, significa que el padre de i es j
+        //La raiz de un arbol se identifica cuando dado i entre 1 y n, i es padre de si mismo
+        //Tanto tam_arbs como ranks, en la posiciones donde hay una raiz, estan la cantidad de nodos del arbol y rank de dicha raiz
         vector<unsigned int> arboles;
         vector<unsigned int> tam_arbs;
         vector<unsigned int> ranks;
