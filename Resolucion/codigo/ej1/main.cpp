@@ -105,11 +105,11 @@ void segmentar(const matriz& m, int k, int metodo){
     shared_ptr<disjoint_set> U;
     switch(metodo){
         case 0:
-        U.reset(new disjoint_set_arreglo());
+            U.reset(new disjoint_set_arreglo());
             break;
         case 1:
+            U.reset(new disjoint_set_arbol());
             break;
-        U.reset(new disjoint_set_arbol());
         case 2:
             // Descomentar lo de abajo cuando se lo implemente
             //shared_ptr<disjoint_set> U = new disjoint_set_arbol_optimizado();
