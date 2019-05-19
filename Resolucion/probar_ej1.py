@@ -4,7 +4,7 @@ import os
 import colorsys
 
 def crear_colores(N=5):
-    HSV_tuples = [(x * 1.0 / N, 0.5, 0.5) for x in range(N)]
+    HSV_tuples = [(x * 1.0 / N, 0.9, 0.9) for x in range(N)]
     res = []
     for rgb in HSV_tuples:
         rgb = map(lambda x: int(x * 255), colorsys.hsv_to_rgb(*rgb))
@@ -31,7 +31,7 @@ def armar_imagen(n, m ,data):
     return img
 
 def correr(datos_img, k, metodo):
-    completado = subprocess.run(["./bin/ej1", f"{metodo}", f"{k}"], capture_output=True, input=datos_img[2], text=True)
+    completado = subprocess.run(["./bin/ej1", f"{metodo}", f"{k}"], stdout=subprocess.PIPE, input=datos_img[2], universal_newlines=True)
     if completado.returncode != 0:
         print(f"ERROR: El programa finalizo de forma incorrecta. Parametros usados: k={k} metodo={metodo}")
     else:
@@ -49,6 +49,7 @@ def correr(datos_img, k, metodo):
 os.system("cd codigo/ej1/ && make")
 
 carpeta = "datos_entrada/ej1/"
+
 correr(preparar_img(carpeta + "test1.jpg"), 1000, 0)
 correr(preparar_img(carpeta + "test1.jpg"), 1000, 1)
 correr(preparar_img(carpeta + "test2.png"), 1000, 0)
