@@ -53,13 +53,25 @@ class disjoint_set_arbol : public disjoint_set{
             for(unsigned int i = 0;i < n;i++)
                 arboles[i] = i;
             tam_arbs.resize(n, 1);
+            ranks.resize(n, 0);
 		}
         virtual void unite(unsigned int i, unsigned int j){
 			unsigned int root_i = find(i);
 			unsigned int root_j = find(j);
-			arboles[root_j] = root_i;
-			tam_arbs[root_i] += tam_arbs[root_j];
-			tam_arbs[root_j] = 0;
+			
+			if(root_i != root_j){
+				if(ranks[root_i] < ranks[root_j]){
+					arboles[root_i] = root_j;
+					tam_arbs[root_j] += tam_arbs[root_i];
+				}else if(ranks[root_i] > ranks[root_j]){
+					arboles[root_j] = root_i;
+					tam_arbs[root_i] += tam_arbs[root_j];
+				}else{
+					arboles[root_j] = root_i;
+					tam_arbs[root_i] += tam_arbs[root_j];
+					ranks[root_i] += 1;
+				}
+			}
 		}
         virtual unsigned int find(unsigned int i){
 			while(arboles[i] != i)
@@ -72,8 +84,10 @@ class disjoint_set_arbol : public disjoint_set{
     private:
 		//En la i-esima posicion de arboles hay un valor j, significa que el padre de i es j
 		//La raiz de un arbol se identifica cuando dado i entre 1 y n, i es padre de si mismo
+		//Tanto tam_arbs como ranks, en la posiciones donde hay una raiz, estan la cantidad de nodos del arbol y rank de dicha raiz
         vector<unsigned int> arboles;
         vector<unsigned int> tam_arbs;
+        vector<unsigned int> ranks;
 };
 
 class disjoint_set_arbol_optimizado : public disjoint_set{
