@@ -37,5 +37,12 @@ int main(int argc, char** argv){
 
     DatosProblema r = leer_datos(cin);
 
+	int metodo;
+	if(argc > 4){ // Si pasan los parametros adicionales
+		metodo = atoi(argv[argc-4]);
+	}else{
+		metodo = 0;
+	}
+
     return 0;
 }
