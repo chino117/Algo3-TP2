@@ -46,5 +46,6 @@ def correr(datos_img, k, metodo):
         comp_img.show()
 
 correr(preparar_img("test1.jpg"), 1000, 0)
+correr(preparar_img("test1.jpg"), 1000, 1)
 correr(preparar_img("test2.png"), 1000, 0)
-
+correr(preparar_img("test2.png"), 1000, 1)
