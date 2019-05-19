@@ -12,16 +12,24 @@
 using namespace std;
 
 typedef vector<vector<int>> Matriz;
+const int none = -1;
 
 void resizeMatriz( Matriz &m , const int fils , const int cols )
 {
 	m.resize(fils);
 	for(auto &it : m){
-		it.resize(cols);
+		it.resize(cols, none);
 	}
 }
-// Estructura que contiene los datos de entrada del problema
 
+// Estructura que devuelven los algoritmos pedidos
+// Contiene los caminos minimos y metodo utilizado
+struct ResultadoProblema{
+	unsigned int metodo;
+	Matriz g;
+};
+
+// Estructura que contiene los datos de entrada del problema
 struct DatosProblema
 {
 	int n; //Cantidad de ciudades
@@ -31,7 +39,6 @@ struct DatosProblema
 };
 
 // Operaciones de DatosProblema
-
 istream& operator>>(istream& is, DatosProblema& d)
 {
 	is>>d.n;
@@ -49,13 +56,9 @@ istream& operator>>(istream& is, DatosProblema& d)
 	for(unsigned int i = 0;i < d.n; i++)
 		is>>d.costoXciudad[i];
 
-	int a_i;
-	int b_i;
-	int l_i;
+	int a_i,b_i,l_i;
 	for(unsigned int i = 0;i < d.m;i++){
-		is>>a_i;
-		is>>b_i;
-		is>>l_i;
+		is>>a_i>>b_i>>l_i;
 		d.litrosXeje[a_i-1][b_i-1] = l_i;
 		d.litrosXeje[b_i-1][a_i-1] = l_i;
 	}
