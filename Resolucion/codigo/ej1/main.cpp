@@ -6,16 +6,38 @@
 #include <algorithm>
 #include <memory>
 #include <limits>
+#include <chrono>
+#include <fstream>
 #include "disjoint_set.hpp"
 
 using namespace std;
 
 using matriz = vector<vector<int>>;
 using eje = tuple<unsigned int, unsigned int, unsigned int>;
+using milisegundos = chrono::duration<double, milli>;
 
 unsigned int w(const eje& e){return get<0>(e);}
 unsigned int v(const eje& e){return get<1>(e);}
 unsigned int u(const eje& e){return get<2>(e);}
+
+string nombres_metodos[3] = {
+                             "DisjointSet con Arreglo",
+                             "DisjointSet con arbol",
+                             "DisjointSet con arbol y Path Compression"
+                            };
+
+void escribir_tiempo(milisegundos medicion, int k, int metodo){
+    string path = "tiempos.csv";
+    fstream f;
+    f.open(path, fstream::out | fstream::app);
+
+    if(f.fail()){
+        cerr<<"ERROR: No se pudo abrir el archivo de mediciones";
+        return;
+    }
+    f<<nombres_metodos[metodo]<<","<<k<<","<<medicion.count()<<endl;
+    f.close();
+}
 
 void mostrar_matriz(const matriz& m){
     for(auto& i : m){
@@ -77,7 +99,7 @@ void segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U, int n, int k){
     }
 }
 
-void segmentar(const matriz& m, int k, int metodo){
+milisegundos segmentar(const matriz& m, int k, int metodo){
     int alto = m.size();
     int ancho = m[0].size();
     unsigned int n = m.size() * m[0].size();
@@ -111,8 +133,7 @@ void segmentar(const matriz& m, int k, int metodo){
             U.reset(new disjoint_set_arbol());
             break;
         case 2:
-            // Descomentar lo de abajo cuando se lo implemente
-            //shared_ptr<disjoint_set> U = new disjoint_set_arbol_optimizado();
+            U.reset(new disjoint_set_arbol_optimizado());
             break;
         default:
             cout<<"ERROR: Parametro de metodo incorrecto"<<endl;
@@ -120,8 +141,8 @@ void segmentar(const matriz& m, int k, int metodo){
             break;
     }
 
+    auto start_time = chrono::steady_clock::now();
     U->create(n);
-
     segmentar_aux(E, U, n, k);
 
     matriz res(alto, vector<int>(ancho, 0));
@@ -129,8 +150,13 @@ void segmentar(const matriz& m, int k, int metodo){
         for(int j = 0;j < ancho;j++)
             res[i][j] = U->find(i*ancho + j); 
 
+    auto end_time = chrono::steady_clock::now();
+    auto diff_time = end_time - start_time;
+
     /* cout<<"Matriz de la imagen segmentada"<<endl; */
     mostrar_matriz(res);
+
+    return milisegundos(diff_time);
 }
 
 int main(int argc, char** argv){
@@ -158,9 +184,7 @@ int main(int argc, char** argv){
     /* cout<<"Matriz de la imagen: "<<endl; */
     //mostrar_matriz(m);
 
-    // Terminamos de leer
-    segmentar(m, k, metodo);
-
+    escribir_tiempo(segmentar(m, k, metodo), k, metodo);
         
     return 0;
 }
