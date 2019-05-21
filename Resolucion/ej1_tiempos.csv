@@ -1,14 +1,14 @@
-Metodo,k,Tiempo(mseg)
-DisjointSet con arbol y Path Compression,1000,35.0708
-DisjointSet con Arreglo,1000,22698.6
-DisjointSet con arbol,1000,34.5455
-DisjointSet con Arreglo,1000,22837.5
-DisjointSet con arbol,1000,30.8983
-DisjointSet con arbol y Path Compression,1000,38.9857
-DisjointSet con arbol y Path Compression,1000,37.1785
-DisjointSet con Arreglo,1000,9459.76
-DisjointSet con arbol,1000,12.1937
-DisjointSet con Arreglo,1000,9642.77
-DisjointSet con arbol,1000,12.4406
-DisjointSet con arbol y Path Compression,1000,16.5362
-DisjointSet con arbol y Path Compression,1000,15.1332
+Filename,Metodo,k,Tiempo(mseg)
+,DisjointSet con arbol y Path Compression,1000,35.0708
+,DisjointSet con Arreglo,1000,22698.6
+,DisjointSet con arbol,1000,34.5455
+,DisjointSet con Arreglo,1000,22837.5
+,DisjointSet con arbol,1000,30.8983
+,DisjointSet con arbol y Path Compression,1000,38.9857
+,DisjointSet con arbol y Path Compression,1000,37.1785
+,DisjointSet con Arreglo,1000,9459.76
+,DisjointSet con arbol,1000,12.1937
+,DisjointSet con Arreglo,1000,9642.77
+,DisjointSet con arbol,1000,12.4406
+,DisjointSet con arbol y Path Compression,1000,16.5362
+,DisjointSet con arbol y Path Compression,1000,15.1332

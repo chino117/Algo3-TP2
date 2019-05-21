@@ -28,7 +28,7 @@ string nombres_metodos[3] = {
                              "DisjointSet con arbol y Path Compression"
                             };
 
-void escribir_tiempo(milisegundos medicion, int k, int metodo){
+void escribir_tiempo(const string& filename, milisegundos medicion, int k, int metodo){
     string path = "ej1_tiempos.csv";
     fstream f;
     f.open(path, fstream::out | fstream::app);
@@ -37,7 +37,7 @@ void escribir_tiempo(milisegundos medicion, int k, int metodo){
         cerr<<"ERROR: No se pudo abrir el archivo de mediciones";
         return;
     }
-    f<<nombres_metodos[metodo]<<","<<k<<","<<medicion.count()<<endl;
+    f<<filename<<","<<nombres_metodos[metodo]<<","<<k<<","<<medicion.count()<<endl;
     f.close();
 }
 
@@ -157,9 +157,12 @@ milisegundos segmentar(const matriz& m, int k, int metodo){
 int main(int argc, char** argv){
 
     int metodo, k;
+    string filename("");
     if(argc > 2){ // Si pasan los parametros adicionales
-        metodo = atoi(argv[argc-2]);
-        k = atoi(argv[argc-1]);
+        metodo = atoi(argv[1]);
+        k = atoi(argv[2]);
+        if(argc > 3)
+            filename = string(argv[3]);
     }
     else{
         metodo = 0;
@@ -185,7 +188,7 @@ int main(int argc, char** argv){
     }
 
 
-    escribir_tiempo(segmentar(m, k, metodo), k, metodo);
+    escribir_tiempo(filename, segmentar(m, k, metodo), k, metodo);
         
     return 0;
 }

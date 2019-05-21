@@ -1,99 +1,109 @@
-DisjointSet con Arreglo,1000,7629.71
-DisjointSet con Arreglo,1000,7582.3
-DisjointSet con Arreglo,1000,7527.71
-DisjointSet con Arreglo,1000,7919.28
-DisjointSet con Arreglo,1000,7529.52
-DisjointSet con Arreglo,1000,7560.86
-DisjointSet con Arreglo,1000,7586.49
-DisjointSet con Arreglo,1000,7591.38
-DisjointSet con arbol,1000,10.3535
-DisjointSet con Arreglo,1000,7627.11
-DisjointSet con arbol,1000,9.30203
-DisjointSet con arbol y Path Compression,1000,12.8115
-DisjointSet con arbol y Path Compression,1000,12.5169
-DisjointSet con Arreglo,1000,7629.84
-DisjointSet con arbol,1000,10.6951
-DisjointSet con Arreglo,1000,7737.18
-DisjointSet con arbol,1000,10.3703
-DisjointSet con arbol y Path Compression,1000,13.5297
-DisjointSet con arbol y Path Compression,1000,12.9332
-DisjointSet con Arreglo,1000,7595.19
-DisjointSet con arbol,1000,9.99985
-DisjointSet con Arreglo,1000,7578.66
-DisjointSet con arbol,1000,9.69495
-DisjointSet con arbol y Path Compression,1000,12.82
-DisjointSet con arbol y Path Compression,1000,12.8156
-DisjointSet con Arreglo,1000,7514.4
-DisjointSet con arbol,1000,10.1112
-DisjointSet con Arreglo,1000,7676.45
-DisjointSet con arbol,1000,9.64608
-DisjointSet con arbol y Path Compression,1000,12.8578
-DisjointSet con arbol y Path Compression,1000,12.3383
-DisjointSet con Arreglo,1000,7687.63
-DisjointSet con arbol,1000,10.3631
-DisjointSet con Arreglo,1000,7747.3
-DisjointSet con arbol,1000,10.7807
-DisjointSet con arbol y Path Compression,1000,12.9176
-DisjointSet con arbol y Path Compression,1000,13.3734
-DisjointSet con Arreglo,1000,7828.06
-DisjointSet con arbol,1000,11.0088
-DisjointSet con Arreglo,1000,8314.61
-DisjointSet con arbol,1000,9.65142
-DisjointSet con arbol y Path Compression,1000,14.1657
-DisjointSet con arbol y Path Compression,1000,14.8804
-DisjointSet con Arreglo,1000,7828.6
-DisjointSet con arbol,1000,10.9246
-DisjointSet con Arreglo,1000,7853.29
-DisjointSet con arbol,1000,9.89411
-DisjointSet con arbol y Path Compression,1000,13.2402
-DisjointSet con arbol y Path Compression,1000,12.7184
-DisjointSet con Arreglo,1000,7735.64
-DisjointSet con Arreglo,1000,40993.9
-DisjointSet con Arreglo,1000,7557.56
-DisjointSet con arbol,1000,10.6702
-DisjointSet con Arreglo,1000,7610.35
-DisjointSet con arbol,1000,9.86812
-DisjointSet con arbol y Path Compression,1000,15.5548
-DisjointSet con arbol y Path Compression,1000,12.8763
-DisjointSet con Arreglo,500,8002.93
-DisjointSet con arbol,500,10.2961
-DisjointSet con arbol y Path Compression,500,13.3961
-DisjointSet con Arreglo,1000,7693.01
-DisjointSet con arbol,1000,10.7918
-DisjointSet con arbol y Path Compression,1000,15.1921
-DisjointSet con Arreglo,1500,7715.58
-DisjointSet con arbol,1500,11.1245
-DisjointSet con arbol y Path Compression,1500,13.7434
-DisjointSet con Arreglo,2000,7694.55
-DisjointSet con arbol,2000,11.2119
-DisjointSet con arbol y Path Compression,2000,13.3963
-DisjointSet con Arreglo,2500,7806.52
-DisjointSet con arbol,2500,10.9849
-DisjointSet con arbol y Path Compression,2500,13.6491
-DisjointSet con Arreglo,3000,7790.95
-DisjointSet con arbol,3000,11.7897
-DisjointSet con arbol y Path Compression,3000,14.5888
-DisjointSet con Arreglo,3500,7696.08
-DisjointSet con arbol,3500,11.3856
-DisjointSet con arbol y Path Compression,3500,14.1015
-DisjointSet con Arreglo,4000,7684.02
-DisjointSet con arbol,4000,12.1626
-DisjointSet con arbol y Path Compression,4000,14.7758
-DisjointSet con Arreglo,4500,7974.83
-DisjointSet con arbol,4500,12.0865
-DisjointSet con arbol y Path Compression,4500,14.0986
-DisjointSet con Arreglo,5000,8070.26
-DisjointSet con arbol,5000,14.1362
-DisjointSet con arbol y Path Compression,5000,14.7513
-DisjointSet con Arreglo,5500,8304.7
-DisjointSet con arbol,5500,12.3642
-DisjointSet con arbol y Path Compression,5500,14.3002
-DisjointSet con Arreglo,6000,7939.81
-DisjointSet con arbol,6000,11.5619
-DisjointSet con arbol y Path Compression,6000,15.5426
-DisjointSet con Arreglo,500,7606.44
-DisjointSet con arbol,500,11.5038
-DisjointSet con arbol y Path Compression,500,14.4503
-DisjointSet con Arreglo,1000,7610.79
-DisjointSet con arbol,1000,12.0474
-DisjointSet con arbol y Path Compression,1000,18.1376
+Filename,Metodo,k,Tiempo(mseg)
+,DisjointSet con Arreglo,1000,7919.28
+,DisjointSet con Arreglo,1000,7529.52
+,DisjointSet con Arreglo,1000,7560.86
+,DisjointSet con Arreglo,1000,7586.49
+,DisjointSet con Arreglo,1000,7591.38
+,DisjointSet con arbol,1000,10.3535
+,DisjointSet con Arreglo,1000,7627.11
+,DisjointSet con arbol,1000,9.30203
+,DisjointSet con arbol y Path Compression,1000,12.8115
+,DisjointSet con arbol y Path Compression,1000,12.5169
+,DisjointSet con Arreglo,1000,7629.84
+,DisjointSet con arbol,1000,10.6951
+,DisjointSet con Arreglo,1000,7737.18
+,DisjointSet con arbol,1000,10.3703
+,DisjointSet con arbol y Path Compression,1000,13.5297
+,DisjointSet con arbol y Path Compression,1000,12.9332
+,DisjointSet con Arreglo,1000,7595.19
+,DisjointSet con arbol,1000,9.99985
+,DisjointSet con Arreglo,1000,7578.66
+,DisjointSet con arbol,1000,9.69495
+,DisjointSet con arbol y Path Compression,1000,12.82
+,DisjointSet con arbol y Path Compression,1000,12.8156
+,DisjointSet con Arreglo,1000,7514.4
+,DisjointSet con arbol,1000,10.1112
+,DisjointSet con Arreglo,1000,7676.45
+,DisjointSet con arbol,1000,9.64608
+,DisjointSet con arbol y Path Compression,1000,12.8578
+,DisjointSet con arbol y Path Compression,1000,12.3383
+,DisjointSet con Arreglo,1000,7687.63
+,DisjointSet con arbol,1000,10.3631
+,DisjointSet con Arreglo,1000,7747.3
+,DisjointSet con arbol,1000,10.7807
+,DisjointSet con arbol y Path Compression,1000,12.9176
+,DisjointSet con arbol y Path Compression,1000,13.3734
+,DisjointSet con Arreglo,1000,7828.06
+,DisjointSet con arbol,1000,11.0088
+,DisjointSet con Arreglo,1000,8314.61
+,DisjointSet con arbol,1000,9.65142
+,DisjointSet con arbol y Path Compression,1000,14.1657
+,DisjointSet con arbol y Path Compression,1000,14.8804
+,DisjointSet con Arreglo,1000,7828.6
+,DisjointSet con arbol,1000,10.9246
+,DisjointSet con Arreglo,1000,7853.29
+,DisjointSet con arbol,1000,9.89411
+,DisjointSet con arbol y Path Compression,1000,13.2402
+,DisjointSet con arbol y Path Compression,1000,12.7184
+,DisjointSet con Arreglo,1000,7735.64
+,DisjointSet con Arreglo,1000,40993.9
+,DisjointSet con Arreglo,1000,7557.56
+,DisjointSet con arbol,1000,10.6702
+,DisjointSet con Arreglo,1000,7610.35
+,DisjointSet con arbol,1000,9.86812
+,DisjointSet con arbol y Path Compression,1000,15.5548
+,DisjointSet con arbol y Path Compression,1000,12.8763
+,DisjointSet con Arreglo,500,8002.93
+,DisjointSet con arbol,500,10.2961
+,DisjointSet con arbol y Path Compression,500,13.3961
+,DisjointSet con Arreglo,1000,7693.01
+,DisjointSet con arbol,1000,10.7918
+,DisjointSet con arbol y Path Compression,1000,15.1921
+,DisjointSet con Arreglo,1500,7715.58
+,DisjointSet con arbol,1500,11.1245
+,DisjointSet con arbol y Path Compression,1500,13.7434
+,DisjointSet con Arreglo,2000,7694.55
+,DisjointSet con arbol,2000,11.2119
+,DisjointSet con arbol y Path Compression,2000,13.3963
+,DisjointSet con Arreglo,2500,7806.52
+,DisjointSet con arbol,2500,10.9849
+,DisjointSet con arbol y Path Compression,2500,13.6491
+,DisjointSet con Arreglo,3000,7790.95
+,DisjointSet con arbol,3000,11.7897
+,DisjointSet con arbol y Path Compression,3000,14.5888
+,DisjointSet con Arreglo,3500,7696.08
+,DisjointSet con arbol,3500,11.3856
+,DisjointSet con arbol y Path Compression,3500,14.1015
+,DisjointSet con Arreglo,4000,7684.02
+,DisjointSet con arbol,4000,12.1626
+,DisjointSet con arbol y Path Compression,4000,14.7758
+,DisjointSet con Arreglo,4500,7974.83
+,DisjointSet con arbol,4500,12.0865
+,DisjointSet con arbol y Path Compression,4500,14.0986
+,DisjointSet con Arreglo,5000,8070.26
+,DisjointSet con arbol,5000,14.1362
+,DisjointSet con arbol y Path Compression,5000,14.7513
+,DisjointSet con Arreglo,5500,8304.7
+,DisjointSet con arbol,5500,12.3642
+,DisjointSet con arbol y Path Compression,5500,14.3002
+,DisjointSet con Arreglo,6000,7939.81
+,DisjointSet con arbol,6000,11.5619
+,DisjointSet con arbol y Path Compression,6000,15.5426
+,DisjointSet con Arreglo,500,7606.44
+,DisjointSet con arbol,500,11.5038
+,DisjointSet con arbol y Path Compression,500,14.4503
+,DisjointSet con Arreglo,1000,7610.79
+,DisjointSet con arbol,1000,12.0474
+,DisjointSet con arbol y Path Compression,1000,18.1376
+,DisjointSet con Arreglo,1000,10858.6
+,DisjointSet con arbol,1000,16.4224
+,DisjointSet con Arreglo,1000,9766.41
+,DisjointSet con arbol,1000,10.9569
+,DisjointSet con arbol y Path Compression,1000,15.8105
+,DisjointSet con arbol y Path Compression,1000,15.1629
+test1.jpg,DisjointSet con Arreglo,1000,9606.93
+test1.jpg,DisjointSet con arbol,1000,12.172
+test2.png,DisjointSet con Arreglo,1000,10112.3
+test2.png,DisjointSet con arbol,1000,11.8705
+test1.jpg,DisjointSet con arbol y Path Compression,1000,16.757
+test2.png,DisjointSet con arbol y Path Compression,1000,15.2901
