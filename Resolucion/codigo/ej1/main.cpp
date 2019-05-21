@@ -9,6 +9,8 @@
 #include <chrono>
 #include <fstream>
 #include "disjoint_set.hpp"
+#include <iterator>
+#include <sstream>
 
 using namespace std;
 
@@ -166,12 +168,22 @@ int main(int argc, char** argv){
 
     int alto, ancho;
     cin >> alto >> ancho;
-
+    
     matriz m(alto, vector<int>(ancho, 0));
 
-    for(int i = 0; i < alto;i++)
-        for(int j = 0; j < ancho;j++)
-            cin >> m[i][j];
+    string row = "";
+    getline(cin,row); //NO BORRAR: agarra el newline extra que queda por el cin >> alto >> ancho
+    for(int i = 0; i < alto;i++){
+        getline( std::cin, row );
+        istringstream is( row );
+        vector<int> v( ( istream_iterator<int>( is ) ), istream_iterator<int>() );
+        int j = 0;
+        for ( int x : v) {
+            m[i][j] = x;
+            j++;
+        }
+    }
+
 
     escribir_tiempo(segmentar(m, k, metodo), k, metodo);
         
