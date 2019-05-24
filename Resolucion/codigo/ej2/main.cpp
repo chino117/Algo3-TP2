@@ -69,6 +69,15 @@ int main(int argc, char** argv){
 	}else{
 		metodo = 0;
 	}
-
+	vector<vector<int>> gv;
+	for(int i = 0; i < r.n; i++){
+		auto g = gv[i];
+		for(int e = 0; e < r.m; e++){
+			auto litros = r.litrosXeje[e][i];
+			if(r.costoXciudad[e] < r.costoXciudad[i] && litros <= r.capacidad){
+				g[e] = (r.capacidad - r.litrosXeje[e][i]);
+			}
+		}
+	}
     return 0;
 }

@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         { 
             "name": "(gdb) Attach",
             "type": "cppdbg",
@@ -36,7 +37,26 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build main"
+            "preLaunchTask": "build main1"
+        },
+        {
+            "name": "(gdb) Main EJ2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Resolucion/bin/ej2",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build main2"
         }
     ]
 }
