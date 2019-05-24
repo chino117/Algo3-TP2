@@ -195,3 +195,6 @@ sintetico_1_320x180.png,DisjointSet con arbol y Path Compression,500,11.7431
 sintetico_1_640x360.png,DisjointSet con arbol y Path Compression,500,50.6143
 sintetico_1_1280x720.png,DisjointSet con arbol y Path Compression,500,202.295
 sintetico_1_1920x1080.png,DisjointSet con arbol y Path Compression,500,460.753
+sintetico_1_320x180.png,DisjointSet con Arreglo,500,1928.05
+sintetico_1_320x180.png,DisjointSet con arbol,500,3.99208
+sintetico_1_320x180.png,DisjointSet con arbol y Path Compression,500,4.81097
