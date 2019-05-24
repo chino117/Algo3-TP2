@@ -32,6 +32,7 @@ struct ResultadoProblema{
 // Estructura que contiene los datos de entrada del problema
 struct DatosProblema
 {
+	int capacidad = 60;
 	int n; //Cantidad de ciudades
 	int m; //Cantidad de rutas
 	vector<int> costoXciudad;
@@ -41,9 +42,8 @@ struct DatosProblema
 // Operaciones de DatosProblema
 istream& operator>>(istream& is, DatosProblema& d)
 {
-	is>>d.n;
-	is>>d.m;
-
+	auto infty = 10e9;
+	is>>d.n >> d.m;
 	if (d.n < 0 || d.m < 0)
 	{
 		cout<<"ERROR: Valores asignados a DatosProblema invalidos"<<endl;
@@ -57,6 +57,11 @@ istream& operator>>(istream& is, DatosProblema& d)
 		is>>d.costoXciudad[i];
 
 	int a_i,b_i,l_i;
+	for (int i = 0; i < d.n; i++){
+		for (int j = 0; j < d.n; j++){
+			d.litrosXeje[i][j] = infty;
+		}
+	}
 	for(unsigned int i = 0;i < d.m;i++){
 		is>>a_i>>b_i>>l_i;
 		d.litrosXeje[a_i-1][b_i-1] = l_i;
