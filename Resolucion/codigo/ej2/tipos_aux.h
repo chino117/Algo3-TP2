@@ -12,13 +12,23 @@
 using namespace std;
 
 typedef vector<vector<int>> Matriz;
-const int none = -1;
+typedef vector<vector<tuple<int,int,int>>> MatrizRes;
+const int infty = 10e5;
+
 
 void resizeMatriz( Matriz &m , const int fils , const int cols )
 {
 	m.resize(fils);
 	for(auto &it : m){
-		it.resize(cols, none);
+		it.resize(cols, infty);
+	}
+}
+
+void resizeMatrizRes( MatrizRes &m , const int fils , const int cols )
+{
+	m.resize(fils);
+	for(auto &it : m){
+		it.resize(cols);
 	}
 }
 
@@ -42,7 +52,6 @@ struct DatosProblema
 // Operaciones de DatosProblema
 istream& operator>>(istream& is, DatosProblema& d)
 {
-	auto infty = 10e9;
 	is>>d.n >> d.m;
 	if (d.n < 0 || d.m < 0)
 	{
@@ -53,16 +62,11 @@ istream& operator>>(istream& is, DatosProblema& d)
 	d.costoXciudad.resize(d.n);
 	resizeMatriz(d.litrosXeje, d.n, d.n);
 
-	for(unsigned int i = 0;i < d.n; i++)
+	for(int i = 0;i < d.n; i++)
 		is>>d.costoXciudad[i];
 
 	int a_i,b_i,l_i;
-	for (int i = 0; i < d.n; i++){
-		for (int j = 0; j < d.n; j++){
-			d.litrosXeje[i][j] = infty;
-		}
-	}
-	for(unsigned int i = 0;i < d.m;i++){
+	for(int i = 0;i < d.m;i++){
 		is>>a_i>>b_i>>l_i;
 		d.litrosXeje[a_i-1][b_i-1] = l_i;
 		d.litrosXeje[b_i-1][a_i-1] = l_i;
@@ -75,11 +79,11 @@ ostream& operator<<(ostream& os, const DatosProblema& d)
 {
 	os<<d.n<<" "<<d.m<<endl;
 	os<<"\n"<<endl;
-	for(unsigned int i = 0;i < d.n;i++)
+	for(int i = 0;i < d.n;i++)
 		os<<d.costoXciudad[i]<<"\n"<<endl;
 
-	for(unsigned int i = 0;i < d.n;i++){
-		for(unsigned int j = 0;j < d.n;j++){
+	for(int i = 0;i < d.n;i++){
+		for(int j = 0;j < d.n;j++){
 			os<<d.litrosXeje[i][j]<<" "<<endl;
 		}
 		os<<"\n"<<endl;
@@ -93,11 +97,6 @@ DatosProblema leer_datos(istream& is)
 	is>>res;
 	return res;
 }
-
-
-
-
-
 
 
 #endif
