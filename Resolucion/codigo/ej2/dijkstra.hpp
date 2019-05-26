@@ -53,11 +53,13 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 		coste = infty;
 		i0 = -1;
 		for ( i = 0; i < N; i++ ) {
-			if ( Labels[i].marca == 0 && Labels[i].coste != infty ) {
-				if ( coste == infty ) {
-					coste = Labels[i].coste;
-					i0 = i;
-				} else if ( Labels[i].coste <= coste ) {
+			if ( Labels[i].marca == 0 && Labels[i].coste < infty ) {
+				// if ( coste >= infty ) {
+				// 	coste = Labels[i].coste;
+				// 	i0 = i;
+				// }
+				//  else if ( Labels[i].coste <= coste ) {
+				 if ( Labels[i].coste <= coste ) {
 					coste = Labels[i].coste;
 					i0 = i;
 				}
@@ -77,7 +79,7 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 				/* si el coste acumulado sumado al coste del enlace del nodo i0 al nodo i
 				* es menor al coste del nodo i (o si el coste del nodo i es infinito),
 				* debemos actualizar */
-				if ( Labels[i].coste == infty || Labels[i0].coste + A[i0][i] < Labels[i].coste ) {
+				if ( Labels[i].coste >= infty || Labels[i0].coste + A[i0][i] < Labels[i].coste ) {
 					if ( Labels[i0].coste + A[i0][i] < Labels[i].coste )
 						cout << "   [ mejorando coste de nodo " << i << " ]" << endl;
 					Labels[i].coste = Labels[i0].coste + A[i0][i];
@@ -92,7 +94,7 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 		/* para verificar, imprime los costes calculados hasta el momento */
 		for ( i = 0; i < N; i++ ) {
 			cout << i << ": [";
-			if ( Labels[i].coste == infty ) cout << "Inf";
+			if ( Labels[i].coste >= infty ) cout << "Inf";
 			else cout << Labels[i].coste;
 			cout << ", " << Labels[i].prev ;
 			if ( Labels[i].marca == 1 ) cout <<  ", x]" << endl;
@@ -103,8 +105,17 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 
 	/* Ruta desde el nodo 'a' hasta el nodo 'b' */
 	int longitud = 2;
-	i = b;
-	while ( ( i = Labels[i].prev ) != a ) longitud++;    /* primero estimamos la longitud de la ruta */
+	i = -1;
+	int min= infty;
+	for(int res = b; res < N; res++){
+		if(Labels[res].coste < min){
+			min = Labels[res].coste;
+			i = res;
+		}
+	}
+	while ( ( i = Labels[i].prev ) != a ){
+		longitud++;    /* primero estimamos la longitud de la ruta */
+	} 	
 
 	vector<int> ruta(longitud, 0);      /* array de nodos de la ruta minima */
 	ruta[longitud - 1] = b;      		/* luego rellenamos */

@@ -117,19 +117,65 @@ MatrizRes camMinimo(const DatosProblema &datos, const int metodo){
 	}
 }
 
+tuple<int,int,Matriz> armar_nuevo_grafo (DatosProblema data){
+   Matriz res;
+   resizeMatriz(res, data.n * data.capacidad, data.n * data.capacidad);
+   for (int i = 0; i < data.n; i++){
+      int costoSrc = data.costoXciudad[i];
 
+      for(int litrosSrc = 0; litrosSrc < data.capacidad; litrosSrc++){         
+         int indexSrc = i * data.capacidad + litrosSrc;
+
+         for(int j = 0; j < data.n; j++){
+            int distancia = data.litrosXeje[i][j];
+
+            for(int litrosDst = 0; litrosDst < data.capacidad; litrosDst++ ){
+               int indexDst = j * data.capacidad + litrosDst;
+               int costo = infty;
+               if(distancia > 0){
+                  if(litrosSrc - distancia <= litrosDst){
+                     costo = (litrosDst + distancia - litrosSrc) * costoSrc;
+                  }
+               }
+               res[indexSrc][indexDst] = costo;
+            }
+         }
+         
+      }
+   }
+   int nodos_nuevos = data.n*data.capacidad;
+   int ultimo_nodo = (data.n-1)*data.capacidad;
+   return tuple<int,int,Matriz>(nodos_nuevos,ultimo_nodo,res);
+}
 int main(int argc, char** argv){
-    if(argc < 4)
-        cout<<"ERROR: Faltan argumentos"<<endl;
-
-    DatosProblema r = leer_datos(cin);
+   // prueba();
+   DatosProblema r;
+   if(argc < 4)
+      if(argc != 2)
+         cout<<"ERROR: Faltan argumentos"<<endl;
+      else{
+         ifstream input (argv[1]);
+         r = leer_datos(input);
+      }
+   else
+      r = leer_datos(cin);
+   
 	int metodo;
 	if(argc > 4){ // Si pasan los parametros adicionales
 		metodo = atoi(argv[argc-4]);
 	}else{
 		metodo = 0;
 	}
-	MatrizRes res = camMinimo(r, metodo);
+   
+
+   auto nuevo_grafo = armar_nuevo_grafo(r);
+   
+   auto nueva_matriz = get<2>(nuevo_grafo);
+   auto nuevo_n = get<0>(nuevo_grafo);
+   dijkstraAuxEjemplo(nuevo_n, nueva_matriz, 0, get<1>(nuevo_grafo) ); 
+
+
+	// MatrizRes res = camMinimo(r, metodo);
 	// vector<vector<int>> gv;
 	// for(int i = 0; i < r.n; i++){
 	// 	auto g = gv[i];
