@@ -172,19 +172,38 @@ int main(int argc, char** argv){
    
    auto nueva_matriz = get<2>(nuevo_grafo);
    auto nuevo_n = get<0>(nuevo_grafo);
-   dijkstraAuxEjemplo(nuevo_n, nueva_matriz, 0, get<1>(nuevo_grafo) ); 
+   auto destino_nodo_inicial = get<1>(nuevo_grafo) ;
+   auto origen_nodo_inicial = 0;
+   auto matriz_distancias =  dijkstraAuxEjemplo(nuevo_n, nueva_matriz, origen_nodo_inicial, destino_nodo_inicial); 
 
+	/* Ruta desde el nodo 'a' hasta el nodo 'b' */
+	int longitud = 2;
+	int nodo_final = -1;
+	int min= infty;
+	for(int res = destino_nodo_inicial; res < nuevo_n; res++){
+		if(matriz_distancias[res].coste < min){
+			min = matriz_distancias[res].coste;
+			nodo_final = res;
+		}
+	}
+	while ( ( nodo_final = matriz_distancias[nodo_final].prev ) != origen_nodo_inicial ){
+		longitud++;    /* primero estimamos la longitud de la ruta */
+	} 	
+	vector<int> ruta(longitud, 0);      /* array de nodos de la ruta minima */
+	ruta[longitud - 1] = destino_nodo_inicial;      		/* luego rellenamos */
+	int i = destino_nodo_inicial;
+	for (int j = 1; j < longitud; j++ ) {
+		i = matriz_distancias[i].prev;
+		ruta[longitud - j - 1] = i;
+	}
 
-	// MatrizRes res = camMinimo(r, metodo);
-	// vector<vector<int>> gv;
-	// for(int i = 0; i < r.n; i++){
-	// 	auto g = gv[i];
-	// 	for(int e = 0; e < r.m; e++){
-	// 		auto litros = r.litrosXeje[e][i];
-	// 		if(r.costoXciudad[e] < r.costoXciudad[i] && litros <= r.capacidad){
-	// 			g[e] = (r.capacidad - r.litrosXeje[e][i]);
-	// 		}
-	// 	}
-	// }
-    return 0;
+   
+	cout << "================================================================" << endl;
+	cout << "Ruta mas economica entre nodo " << origen_nodo_inicial / r.capacidad << " con " << origen_nodo_inicial % r.capacidad << " litros" << " y nodo " << destino_nodo_inicial / r.capacidad << " con " << destino_nodo_inicial % r.capacidad << " litros:" << endl;
+	for ( i = 0; i < longitud; i++ ) {
+		cout << ruta[i] / r.capacidad << "(" << ruta[i] % r.capacidad << " lts)";
+		if ( i < longitud - 1 ) cout << " - ";
+	}
+	cout << " Costo total: " << matriz_distancias[destino_nodo_inicial].coste << endl;
+   return 0;
 }
