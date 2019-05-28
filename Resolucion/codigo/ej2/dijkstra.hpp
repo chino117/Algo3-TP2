@@ -192,9 +192,37 @@ MatrizRes dijkstra(int n, const Matriz &A){
 	}
 }
 
-// vector<vector<int>> dijkstra(int n, int m, const vector<int> &costoXciudad, const Matriz &litrosXeje) {
-	
-// 	return res;
-// }
+vector<int> dijkstra_aux_2(int s, const Matriz& W)
+{
+    int n = W.size();
+    vector<int> res(n+1, infty);
 
+    priority_queue<tuple<int, int, int>> S;
+    for(int i = 0;i < n; i++)
+        if(i != s && W[s][i] != infty)
+            S.push({-W[s][i], s, i});
 
+    while(!S.empty()){
+        auto t = S.top();
+        S.pop();
+        int c = get<0>(t);
+        int u = get<2>(t);
+        int v = get<1>(t);
+
+        if(res[u] == infty){
+            res[u] = -c;
+            for(int j = 0;j < n; j++)
+                if(res[j] == infty)
+                    S.push({c-W[u][j], u, j});
+        }
+    }
+    return res;
+}
+
+Matriz dijkstra_2(int n, const Matriz& W, const vector<int>& mapeo){
+    Matriz res;
+    resizeMatriz(res, n, W.size()+1);
+    for(int i = 0;i < n;i++)
+        res[i] = dijkstra_aux_2(mapeo[i], W);
+    return res;
+}

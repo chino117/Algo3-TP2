@@ -3,38 +3,16 @@
 #include <vector>
 #include "tipos_aux.h"
 #include "dijkstra.hpp"
+#include "floyd.hpp"
 
 using namespace std;
 
 // Ejecutar dijkstra sobre el grafo completo de n vértices con pesos en las aristas peso(i,j).
 // Empezar desde el vértice s.
 // Devolver en distancias la distancia de s al resto de los vértices.
-// void dijkstra(int n, int s, const function<double(int i, int j)>& peso, vector<double>& distancias)
-// {
-//     priority_queue<tuple<double, int, int>> S;
-// 	for(int i = 0;i < n; i++)
-// 		if(i != s)
-// 			S.push({-peso(s, i), s, i});
-
-//     while(!S.empty()){
-// 		auto t = S.top();
-// 		S.pop();
-// 		double c = get<0>(t);
-// 		int u = get<2>(t);
-// 		int v = get<1>(t);
-		
-// 		if(distancias[u] == 10e9)
-// 		{
-// 			distancias[u] = -c;
-// 			for(int j = 0;j < n; j++)
-// 				if(distancias[j] == 10e9)
-// 					S.push({c-peso(u, j), u, j});		
-// 		}
-// 	}
-// }
 
 void prueba() {
-	  /* cantidad total de nodos */
+    /* cantidad total de nodos */
    int numNodos = 8;
  
    /* Definiendo la matriz de adyacencia */
@@ -95,7 +73,7 @@ void prueba() {
    dijkstraAuxEjemplo( numNodos, A, 0, 7 ); 
 }
 
-MatrizRes camMinimo(const DatosProblema &datos, const int metodo){
+/*MatrizRes camMinimo(const DatosProblema &datos, const int metodo){
 	MatrizRes res;
 	switch(metodo){
 		case 0:
@@ -115,95 +93,125 @@ MatrizRes camMinimo(const DatosProblema &datos, const int metodo){
 			exit(-1);
 			break;
 	}
-}
+}*/
 
-tuple<int,int,Matriz> armar_nuevo_grafo (DatosProblema data){
-   Matriz res;
-   resizeMatriz(res, data.n * data.capacidad, data.n * data.capacidad);
-   for (int i = 0; i < data.n; i++){
-      int costoSrc = data.costoXciudad[i];
+Matriz armar_nuevo_grafo (DatosProblema data){
+    int capacidad = data.capacidad + 1; 
+    Matriz res;
+    resizeMatriz(res, data.n * capacidad, data.n * capacidad);
+    for (int i = 0; i < data.n; i++){
+        int costoSrc = data.costoXciudad[i];
 
-      for(int litrosSrc = 0; litrosSrc < data.capacidad; litrosSrc++){         
-         int indexSrc = i * data.capacidad + litrosSrc;
+        for(int litrosSrc = 0; litrosSrc < capacidad; litrosSrc++){         
+            int indexSrc = i * capacidad + litrosSrc;
 
-         for(int j = 0; j < data.n; j++){
-            int distancia = data.litrosXeje[i][j];
+            for(int j = 0; j < data.n; j++){
+                int distancia = data.litrosXeje[i][j];
 
-            for(int litrosDst = 0; litrosDst < data.capacidad; litrosDst++ ){
-               int indexDst = j * data.capacidad + litrosDst;
-               int costo = infty;
-               if(distancia > 0){
-                  if(litrosSrc - distancia <= litrosDst){
-                     costo = (litrosDst + distancia - litrosSrc) * costoSrc;
-                  }
-               }
-               res[indexSrc][indexDst] = costo;
+                for(int litrosDst = 0; litrosDst < capacidad; litrosDst++ ){
+                    int indexDst = j * capacidad + litrosDst;
+                    int costo = infty;
+                    if(distancia > 0 && litrosSrc - distancia <= litrosDst)
+                        costo = (litrosDst + distancia - litrosSrc) * costoSrc;
+                    res[indexSrc][indexDst] = costo;
+                }
             }
-         }
-         
-      }
-   }
-   int nodos_nuevos = data.n*data.capacidad;
-   int ultimo_nodo = (data.n-1)*data.capacidad;
-   return tuple<int,int,Matriz>(nodos_nuevos,ultimo_nodo,res);
+        }
+    }
+    return res;
 }
+
+// Por como esta armado dijsktra, los indices de las filas se corresponden con indices de vertices de G
+// Mientras que en Floyd se corresponden con indices de vertices de H
+// Por eso hace falta el flag de mapeo_en_ambos
+void mostrar_output(int n, const Matriz& costos, const vector<int>& mapeo, bool mapeo_en_ambos=false)
+{
+    // TODO: Como esta ahora muestra segun el orden de los vertices en G, no segun el orden del input
+    // Falta hacer un mapeo de G al orden del input y usarlo para mostrar bien las cosas
+    for(int i = 0;i < n;i++){
+        for(int j = 0;j < n;j++){
+            if(i != j){
+                if(mapeo_en_ambos)
+                    cout<<i<<" "<<j<<" "<<costos[mapeo[i]][mapeo[j]]<<endl;
+                else
+                    cout<<i<<" "<<j<<" "<<costos[i][mapeo[j]]<<endl;
+            }
+        }
+    }
+}
+
 int main(int argc, char** argv){
-   // prueba();
-   DatosProblema r;
-   if(argc < 4)
-      if(argc != 2)
-         cout<<"ERROR: Faltan argumentos"<<endl;
-      else{
-         ifstream input (argv[1]);
-         r = leer_datos(input);
-      }
-   else
-      r = leer_datos(cin);
-   
-	int metodo;
-	if(argc > 4){ // Si pasan los parametros adicionales
-		metodo = atoi(argv[argc-4]);
-	}else{
-		metodo = 0;
-	}
-   
+    // prueba();
+    DatosProblema r;
 
-   auto nuevo_grafo = armar_nuevo_grafo(r);
+    if(argc < 4)
+        if(argc != 2)
+        cout<<"ERROR: Faltan argumentos"<<endl;
+        else{
+            ifstream input (argv[1]);
+            r = leer_datos(input);
+        }
+    else
+        r = leer_datos(cin);
    
-   auto nueva_matriz = get<2>(nuevo_grafo);
-   auto nuevo_n = get<0>(nuevo_grafo);
-   auto destino_nodo_inicial = get<1>(nuevo_grafo) ;
-   auto origen_nodo_inicial = 0;
-   auto matriz_distancias =  dijkstraAuxEjemplo(nuevo_n, nueva_matriz, origen_nodo_inicial, destino_nodo_inicial); 
+    int metodo;
+    if(argc > 4){ // Si pasan los parametros adicionales
+        metodo = atoi(argv[argc-4]);
+    }else{
+        metodo = 0;
+    }
+   
+    /* auto nuevo_grafo = armar_nuevo_grafo(r); */
+    /* Matriz nueva_matriz = get<2>(nuevo_grafo); */
+    /* int nuevo_n = get<0>(nuevo_grafo); */
+    /* int destino_nodo_inicial = get<1>(nuevo_grafo) ; */
+    /* int origen_nodo_inicial = 0; */
 
-	/* Ruta desde el nodo 'a' hasta el nodo 'b' */
-	int longitud = 2;
-	int nodo_final = -1;
-	int min= infty;
-	for(int res = destino_nodo_inicial; res < nuevo_n; res++){
-		if(matriz_distancias[res].coste < min){
-			min = matriz_distancias[res].coste;
-			nodo_final = res;
-		}
-	}
-	while ( ( nodo_final = matriz_distancias[nodo_final].prev ) != origen_nodo_inicial ){
-		longitud++;    /* primero estimamos la longitud de la ruta */
-	} 	
-	vector<int> ruta(longitud, 0);      /* array de nodos de la ruta minima */
-	ruta[longitud - 1] = destino_nodo_inicial;      		/* luego rellenamos */
-	int i = destino_nodo_inicial;
-	for (int j = 1; j < longitud; j++ ) {
-		i = matriz_distancias[i].prev;
-		ruta[longitud - j - 1] = i;
-	}
+    Matriz H = armar_nuevo_grafo(r);
+    // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
+    vector<int> mapeoGH(r.n, 0);
+    for(int i = 0;i < r.n;i++)
+        mapeoGH[i] = i*(r.capacidad+1);
+
+    Matriz todos = dijkstra_2(r.n, H, mapeoGH);
+    cout<<"Djikstra"<<endl;
+    mostrar_output(r.n, todos, mapeoGH);
+
+    Matriz D2 = floyd(H);
+    cout<<"Floyd-Warshall"<<endl;
+    mostrar_output(r.n, D2, mapeoGH, true);
+
+    /* auto matriz_distancias = dijkstraAuxEjemplo(nuevo_n, nueva_matriz, origen_nodo_inicial, destino_nodo_inicial); */ 
+
+    /* /1* Ruta desde el nodo 'a' hasta el nodo 'b' *1/ */
+    /* int longitud = 2; */
+    /* int nodo_final = -1; */
+    /* int min= infty; */
+    /* for(int res = destino_nodo_inicial; res < nuevo_n; res++){ */
+    /*     if(matriz_distancias[res].coste < min){ */
+    /*         min = matriz_distancias[res].coste; */
+    /*         nodo_final = res; */
+    /*     } */
+    /* } */
+    /* while ( ( nodo_final = matriz_distancias[nodo_final].prev ) != origen_nodo_inicial ){ */
+    /*     longitud++;    /1* primero estimamos la longitud de la ruta *1/ */
+    /* } */ 	
+    /* vector<int> ruta(longitud, 0);      /1* array de nodos de la ruta minima *1/ */
+    /* ruta[longitud - 1] = destino_nodo_inicial;      		/1* luego rellenamos *1/ */
+    /* int i = destino_nodo_inicial; */
+    /* for (int j = 1; j < longitud; j++ ) { */
+    /*     i = matriz_distancias[i].prev; */
+    /*     ruta[longitud - j - 1] = i; */
+    /* } */
 
    
-	cout << "================================================================" << endl;
-	cout << "Ruta mas economica entre nodo " << origen_nodo_inicial / r.capacidad << " con " << origen_nodo_inicial % r.capacidad << " litros" << " y nodo " << destino_nodo_inicial / r.capacidad << " con " << destino_nodo_inicial % r.capacidad << " litros:" << endl;
-	for ( i = 0; i < longitud; i++ ) {
-		cout << ruta[i] / r.capacidad << "(" << ruta[i] % r.capacidad << " lts)";
-		if ( i < longitud - 1 ) cout << " - ";
-	}
-	cout << " Costo total: " << matriz_distancias[destino_nodo_inicial].coste << endl;
-   return 0;
+    /* cout << "================================================================" << endl; */
+    /* cout << "Ruta mas economica entre nodo " << origen_nodo_inicial / r.capacidad << " con " << origen_nodo_inicial % r.capacidad << " litros" << " y nodo " << destino_nodo_inicial / r.capacidad << " con " << destino_nodo_inicial % r.capacidad << " litros:" << endl; */
+    /* for ( i = 0; i < longitud; i++ ) { */
+    /*     cout << ruta[i] / r.capacidad << "(" << ruta[i] % r.capacidad << " lts)"; */
+    /*     if ( i < longitud - 1 ) cout << " - "; */
+    /* } */
+    /* cout << " Costo total: " << matriz_distancias[destino_nodo_inicial].coste << endl; */
+
+    return 0;
 }
