@@ -117,28 +117,93 @@ MatrizRes camMinimo(const DatosProblema &datos, const int metodo){
 	}
 }
 
+tuple<int,int,Matriz> armar_nuevo_grafo (DatosProblema data){
+   Matriz res;
+   resizeMatriz(res, data.n * data.capacidad, data.n * data.capacidad);
+   for (int i = 0; i < data.n; i++){
+      int costoSrc = data.costoXciudad[i];
 
+      for(int litrosSrc = 0; litrosSrc < data.capacidad; litrosSrc++){         
+         int indexSrc = i * data.capacidad + litrosSrc;
+
+         for(int j = 0; j < data.n; j++){
+            int distancia = data.litrosXeje[i][j];
+
+            for(int litrosDst = 0; litrosDst < data.capacidad; litrosDst++ ){
+               int indexDst = j * data.capacidad + litrosDst;
+               int costo = infty;
+               if(distancia > 0){
+                  if(litrosSrc - distancia <= litrosDst){
+                     costo = (litrosDst + distancia - litrosSrc) * costoSrc;
+                  }
+               }
+               res[indexSrc][indexDst] = costo;
+            }
+         }
+         
+      }
+   }
+   int nodos_nuevos = data.n*data.capacidad;
+   int ultimo_nodo = (data.n-1)*data.capacidad;
+   return tuple<int,int,Matriz>(nodos_nuevos,ultimo_nodo,res);
+}
 int main(int argc, char** argv){
-    if(argc < 4)
-        cout<<"ERROR: Faltan argumentos"<<endl;
-
-    DatosProblema r = leer_datos(cin);
+   // prueba();
+   DatosProblema r;
+   if(argc < 4)
+      if(argc != 2)
+         cout<<"ERROR: Faltan argumentos"<<endl;
+      else{
+         ifstream input (argv[1]);
+         r = leer_datos(input);
+      }
+   else
+      r = leer_datos(cin);
+   
 	int metodo;
 	if(argc > 4){ // Si pasan los parametros adicionales
 		metodo = atoi(argv[argc-4]);
 	}else{
 		metodo = 0;
 	}
-	MatrizRes res = camMinimo(r, metodo);
-	// vector<vector<int>> gv;
-	// for(int i = 0; i < r.n; i++){
-	// 	auto g = gv[i];
-	// 	for(int e = 0; e < r.m; e++){
-	// 		auto litros = r.litrosXeje[e][i];
-	// 		if(r.costoXciudad[e] < r.costoXciudad[i] && litros <= r.capacidad){
-	// 			g[e] = (r.capacidad - r.litrosXeje[e][i]);
-	// 		}
-	// 	}
-	// }
-    return 0;
+   
+
+   auto nuevo_grafo = armar_nuevo_grafo(r);
+   
+   auto nueva_matriz = get<2>(nuevo_grafo);
+   auto nuevo_n = get<0>(nuevo_grafo);
+   auto destino_nodo_inicial = get<1>(nuevo_grafo) ;
+   auto origen_nodo_inicial = 0;
+   auto matriz_distancias =  dijkstraAuxEjemplo(nuevo_n, nueva_matriz, origen_nodo_inicial, destino_nodo_inicial); 
+
+	/* Ruta desde el nodo 'a' hasta el nodo 'b' */
+	int longitud = 2;
+	int nodo_final = -1;
+	int min= infty;
+	for(int res = destino_nodo_inicial; res < nuevo_n; res++){
+		if(matriz_distancias[res].coste < min){
+			min = matriz_distancias[res].coste;
+			nodo_final = res;
+		}
+	}
+	while ( ( nodo_final = matriz_distancias[nodo_final].prev ) != origen_nodo_inicial ){
+		longitud++;    /* primero estimamos la longitud de la ruta */
+	} 	
+	vector<int> ruta(longitud, 0);      /* array de nodos de la ruta minima */
+	ruta[longitud - 1] = destino_nodo_inicial;      		/* luego rellenamos */
+	int i = destino_nodo_inicial;
+	for (int j = 1; j < longitud; j++ ) {
+		i = matriz_distancias[i].prev;
+		ruta[longitud - j - 1] = i;
+	}
+
+   
+	cout << "================================================================" << endl;
+	cout << "Ruta mas economica entre nodo " << origen_nodo_inicial / r.capacidad << " con " << origen_nodo_inicial % r.capacidad << " litros" << " y nodo " << destino_nodo_inicial / r.capacidad << " con " << destino_nodo_inicial % r.capacidad << " litros:" << endl;
+	for ( i = 0; i < longitud; i++ ) {
+		cout << ruta[i] / r.capacidad << "(" << ruta[i] % r.capacidad << " lts)";
+		if ( i < longitud - 1 ) cout << " - ";
+	}
+	cout << " Costo total: " << matriz_distancias[destino_nodo_inicial].coste << endl;
+   return 0;
 }

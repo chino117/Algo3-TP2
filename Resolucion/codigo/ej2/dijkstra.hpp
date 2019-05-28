@@ -22,15 +22,15 @@ struct label_t{
 /* Calcula el coste minimo de alcanzar un nodo final 'b'
 * grafo no dirigido con N nodos, a partir del nodo inicial 'a',
 * dada su matriz de adyacencia A */
-void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
+vector<label_t> dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 	int i, i0, j, coste;
 
 	/* Crea el arreglo de etiquetas de nodo */
 	vector<label_t> Labels(N);
 	/* nodo inicial 'a' entre 0 y N - 1 */
-	if ( a < 0 || a > N - 1 ) return;
+	if ( a < 0 || a > N - 1 ) return Labels;
 	/* nodo final 'b' entre 0 y N - 1 */
-	if ( b < 0 || b > N - 1 ) return;
+	if ( b < 0 || b > N - 1 ) return Labels;
 
 	/* inicializar las etiquetas de nodo */
 	for ( i = 0; i < N; i++ ) {
@@ -53,11 +53,13 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 		coste = infty;
 		i0 = -1;
 		for ( i = 0; i < N; i++ ) {
-			if ( Labels[i].marca == 0 && Labels[i].coste != infty ) {
-				if ( coste == infty ) {
-					coste = Labels[i].coste;
-					i0 = i;
-				} else if ( Labels[i].coste <= coste ) {
+			if ( Labels[i].marca == 0 && Labels[i].coste < infty ) {
+				// if ( coste >= infty ) {
+				// 	coste = Labels[i].coste;
+				// 	i0 = i;
+				// }
+				//  else if ( Labels[i].coste <= coste ) {
+				 if ( Labels[i].coste <= coste ) {
 					coste = Labels[i].coste;
 					i0 = i;
 				}
@@ -77,7 +79,7 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 				/* si el coste acumulado sumado al coste del enlace del nodo i0 al nodo i
 				* es menor al coste del nodo i (o si el coste del nodo i es infinito),
 				* debemos actualizar */
-				if ( Labels[i].coste == infty || Labels[i0].coste + A[i0][i] < Labels[i].coste ) {
+				if ( Labels[i].coste >= infty || Labels[i0].coste + A[i0][i] < Labels[i].coste ) {
 					if ( Labels[i0].coste + A[i0][i] < Labels[i].coste )
 						cout << "   [ mejorando coste de nodo " << i << " ]" << endl;
 					Labels[i].coste = Labels[i0].coste + A[i0][i];
@@ -92,7 +94,7 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 		/* para verificar, imprime los costes calculados hasta el momento */
 		for ( i = 0; i < N; i++ ) {
 			cout << i << ": [";
-			if ( Labels[i].coste == infty ) cout << "Inf";
+			if ( Labels[i].coste >= infty ) cout << "Inf";
 			else cout << Labels[i].coste;
 			cout << ", " << Labels[i].prev ;
 			if ( Labels[i].marca == 1 ) cout <<  ", x]" << endl;
@@ -101,27 +103,11 @@ void dijkstraAuxEjemplo(int N, const Matriz &A, int a, int b){
 		cout << endl;
 	}
 
-	/* Ruta desde el nodo 'a' hasta el nodo 'b' */
-	int longitud = 2;
-	i = b;
-	while ( ( i = Labels[i].prev ) != a ) longitud++;    /* primero estimamos la longitud de la ruta */
 
-	vector<int> ruta(longitud, 0);      /* array de nodos de la ruta minima */
-	ruta[longitud - 1] = b;      		/* luego rellenamos */
-	i = b;
-	j = 0;
-	for ( j = 1; j < longitud; j++ ) {
-		i = Labels[i].prev;
-		ruta[longitud - j - 1] = i;
-	}
 
-	cout << "================================================================" << endl;
-	cout << "Ruta mas economica entre nodo " << a << " y nodo " << b << ":" << endl;
-	for ( i = 0; i < longitud; i++ ) {
-		cout << ruta[i];
-		if ( i < longitud - 1 ) cout << " - ";
-	}
-	cout << " Costo total: " << Labels[b].coste << endl;
+
+
+	return Labels;
 }
 
 // falta aplicar logica del problema al algoritmo

@@ -45,6 +45,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/Resolucion/bin/ej2",
             "stopAtEntry": false,
+            "args": ["/home/ezequiel/Documents/GitRepos/Facu/Algo3_2019c1/tp2/Algo3-TP2/Experimentacion/datos_entrada/ej2/input1.txt"],
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
