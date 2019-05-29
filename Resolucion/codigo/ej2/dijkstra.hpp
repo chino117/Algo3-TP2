@@ -21,7 +21,6 @@ struct vector_element_t{
 	int peso;
 	int origen;
 	int destino;
-	
 };
 
 
@@ -231,7 +230,7 @@ vector<int> dijkstra_aux_1(int s, const Matriz& W)
 		
         S.pop_back();
         int c = t.peso;
-        int v = t.origen;
+        // int v = t.origen; // no se usa
         int u = t.destino;
         if(res[u] == infty){
             res[u] = c;
@@ -266,7 +265,7 @@ vector<int> dijkstra_aux_2(int s, const Matriz& W)
         S.pop();
         int c = get<0>(t);
         int u = get<2>(t);
-        int v = get<1>(t);
+        // int v = get<1>(t); // no se usa
 
         if(res[u] == infty){
             res[u] = -c;

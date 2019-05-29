@@ -64,7 +64,7 @@ vector<int> bellmanFord_opt_aux(int s, const Matriz& W)
         S.pop();
         int c = get<0>(t);
         int u = get<2>(t);
-        int v = get<1>(t);
+        // int v = get<1>(t); // no se usa
 
         if(res[u] == infty){
             res[u] = -c;
