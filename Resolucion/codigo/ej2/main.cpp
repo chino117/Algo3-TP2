@@ -173,9 +173,14 @@ int main(int argc, char** argv){
     for(int i = 0;i < r.n;i++)
         mapeoGH[i] = i*(r.capacidad+1);
 
+	
     Matriz todos = dijkstra_2(r.n, H, mapeoGH);
     cout<<"Djikstra"<<endl;
     mostrar_output(r.n, todos, mapeoGH);
+
+    Matriz todos_arreglo = dijkstra_arreglo_2(r.n, H, mapeoGH);
+    cout<<"Djikstra-Arreglo"<<endl;
+    mostrar_output(r.n, todos_arreglo, mapeoGH);
 
     Matriz D2 = floyd(H);
     cout<<"Floyd-Warshall"<<endl;
