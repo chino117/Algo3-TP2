@@ -13,8 +13,9 @@ vector<int> bellmanFord_aux(int s, const Matriz& W) {
     vector<tuple<int, int, int>> S;
     S.resize(n);
 
-    for(int i = 0;i < n; i++) 
-        S.push_back({W[s][i], s, i});
+    for(int i = 0;i < n; i++)
+        for(int j = 0;j < n; j++) 
+            S.push_back({W[i][j], i, j});
 
     dist[s] = 0;
     vector<tuple<int, int, int>>::iterator it;
