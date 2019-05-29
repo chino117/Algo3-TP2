@@ -198,6 +198,58 @@ MatrizRes dijkstra(int n, const Matriz &A){
 	}
 }
 
+int vector_top_index(vector<vector_element_t> values){
+	int result = -1;
+	int min;
+	bool first = true;
+	for(int i=0;i< values.size();i++){
+		if(first || values[i].peso < min){
+			first = false;
+			min = values[i].peso;
+			result = i;
+		}
+	}
+	return result;
+}
+
+vector<int> dijkstra_aux_1(int s, const Matriz& W)
+{
+    int n = W.size();
+    vector<int> res(n+1, infty);
+
+    vector<vector_element_t> S;
+    for(int i = 0;i < n; i++)
+        if(i != s && W[s][i] != infty)
+            S.push_back({W[s][i], s, i});
+	
+    while(!S.empty()){
+        auto top_index = vector_top_index(S);
+		auto t = S[top_index];
+		if(top_index != S.size()-1){
+			swap(S[top_index],S.back());
+		}
+		
+		S.pop_back();
+        int c = t.peso;
+        int v = t.origen;
+		int u = t.destino;
+        if(res[u] == infty){
+            res[u] = c;
+            for(int j = 0;j < n; j++)
+                if(res[j] == infty)
+                    S.push_back({c+W[u][j], u, j});
+        }
+    }
+    return res;
+}
+
+Matriz dijkstra_1(int n, const Matriz& W, const vector<int>& mapeo){
+    Matriz res;
+    resizeMatriz(res, n, W.size()+1);
+    for(int i = 0;i < n;i++)
+        res[i] = dijkstra_aux_1(mapeo[i], W);
+    return res;
+}
 vector<int> dijkstra_aux_2(int s, const Matriz& W)
 {
     int n = W.size();
@@ -233,54 +285,3 @@ Matriz dijkstra_2(int n, const Matriz& W, const vector<int>& mapeo){
     return res;
 }
 
-int vector_top_index(vector<vector_element_t> values){
-	int result = -1;
-	int min;
-	bool first = true;
-	for(int i=0;i< values.size();i++){
-		if(first || values[i].peso < min){
-			first = false;
-			min = values[i].peso;
-			result = i;
-		}
-	}
-	return result;
-}
-vector<int> dijkstra_arreglo_aux_2(int s, const Matriz& W)
-{
-    int n = W.size();
-    vector<int> res(n+1, infty);
-
-    vector<vector_element_t> S;
-    for(int i = 0;i < n; i++)
-        if(i != s && W[s][i] != infty)
-            S.push_back({W[s][i], s, i});
-	
-    while(!S.empty()){
-        auto top_index = vector_top_index(S);
-		auto t = S[top_index];
-		if(top_index != S.size()-1){
-			swap(S[top_index],S.back());
-		}
-		
-		S.pop_back();
-        int c = t.peso;
-        int v = t.origen;
-		int u = t.destino;
-        if(res[u] == infty){
-            res[u] = c;
-            for(int j = 0;j < n; j++)
-                if(res[j] == infty)
-                    S.push_back({c+W[u][j], u, j});
-        }
-    }
-    return res;
-}
-
-Matriz dijkstra_arreglo_2(int n, const Matriz& W, const vector<int>& mapeo){
-    Matriz res;
-    resizeMatriz(res, n, W.size()+1);
-    for(int i = 0;i < n;i++)
-        res[i] = dijkstra_arreglo_aux_2(mapeo[i], W);
-    return res;
-}

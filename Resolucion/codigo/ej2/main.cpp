@@ -4,6 +4,7 @@
 #include "tipos_aux.h"
 #include "dijkstra.hpp"
 #include "floyd.hpp"
+#include "bellmanFord.hpp"
 
 using namespace std;
 
@@ -173,18 +174,21 @@ int main(int argc, char** argv){
     for(int i = 0;i < r.n;i++)
         mapeoGH[i] = i*(r.capacidad+1);
 
-	
-    Matriz todos = dijkstra_2(r.n, H, mapeoGH);
-    cout<<"Djikstra"<<endl;
-    mostrar_output(r.n, todos, mapeoGH);
-
-    Matriz todos_arreglo = dijkstra_arreglo_2(r.n, H, mapeoGH);
+    Matriz todos_arreglo = dijkstra_1(r.n, H, mapeoGH);
     cout<<"Djikstra-Arreglo"<<endl;
     mostrar_output(r.n, todos_arreglo, mapeoGH);
+	
+    Matriz todos = dijkstra_2(r.n, H, mapeoGH);
+    cout<<"Djikstra-cola"<<endl;
+    mostrar_output(r.n, todos, mapeoGH);
 
     Matriz D2 = floyd(H);
     cout<<"Floyd-Warshall"<<endl;
     mostrar_output(r.n, D2, mapeoGH, true);
+
+    Matriz todos_bellmanFord = bellmanFord(H);
+    cout<<"Floyd-Warshall"<<endl;
+    mostrar_output(r.n, todos_bellmanFord, mapeoGH, true);
 
     /* auto matriz_distancias = dijkstraAuxEjemplo(nuevo_n, nueva_matriz, origen_nodo_inicial, destino_nodo_inicial); */ 
 
