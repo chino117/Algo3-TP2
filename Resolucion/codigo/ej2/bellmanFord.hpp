@@ -12,31 +12,29 @@ vector<int> bellmanFord_aux(int s, const Matriz& W) {
     vector<int> dist(n+1, infty);
     vector<tuple<int, int, int>> S;
     S.resize(n);
-    for(int i = 0;i < n; i++) {
-		S.push_back({W[s][i], s, i});
-    }
+
+    for(int i = 0;i < n; i++) 
+        S.push_back({W[s][i], s, i});
 
     dist[s] = 0;
     vector<tuple<int, int, int>>::iterator it;
     for(int i=1;i<n;i++){
         for(it = S.begin();it!=S.end();++it){
-            int c = it->get<0>;
-            int u = it->get<1>;
-            int v = it->get<2>;
+            int c = get<0>(*it);
+            int u = get<1>(*it);
+            int v = get<2>(*it);
 
-            if(dist[u] + c < dist[v]){
+            if(dist[u] + c < dist[v])
                 dist[v] = dist[u] + c;
-            }
         }
     }
 
     for(it = S.begin();it!=S.end();++it){
-        int c = it->get<0>;
-        int u = it->get<1>;
-        int v = it->get<2>;
-        if(dist[u] + c < dist[v]){
+        int c = get<0>(*it);
+        int u = get<1>(*it);
+        int v = get<2>(*it);
+        if(dist[u] + c < dist[v])
             cout << "ERROR: TIENE CICLO NEGATIVO" << endl;
-        }
     }
 
     return dist;
@@ -61,7 +59,7 @@ vector<int> bellmanFord_opt_aux(int s, const Matriz& W)
             S.push({-W[s][i], s, i});
 
     while(!S.empty()){
-        auto t = S.top();
+        auto t = S.front();
         S.pop();
         int c = get<0>(t);
         int u = get<2>(t);
