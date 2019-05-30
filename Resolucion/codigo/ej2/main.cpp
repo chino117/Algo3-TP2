@@ -17,11 +17,14 @@ string nombres_metodos[4] = {
                                 "Floyd-Warshall"
                             };
 
-void escribir_tiempo(int metodo, int n, int m, chrono::duration<double, milli> tiempo, string path){
-    fstream f("ej2_tiempos.csv", fstream::app | fstream::out);
-    if(f.good())
-        f<<path.substr(path.rfind("/")+1, path.length())<<","<<n<<","<<m<<","<<nombres_metodos[metodo]<<","<<tiempo.count()<<endl;
-    f.close();
+void escribir_tiempo(int metodo, int n, int m, chrono::duration<double, milli> tiempo, string path,string csvName){
+   if(csvName.length ()== 0){
+      csvName = "ej2_tiempos.csv";
+   }
+   fstream f(csvName, fstream::app | fstream::out);
+   if(f.good())
+      f<<path.substr(path.rfind("/")+1, path.length())<<","<<n<<","<<m<<","<<nombres_metodos[metodo]<<","<<tiempo.count()<<endl;
+   f.close();
 }
 
 // Por como esta armado dijsktra, los indices de las filas se corresponden con indices de vertices de G
@@ -151,19 +154,19 @@ int main(int argc, char** argv){
     else
         r = leer_datos(cin);
    
-    if(argc > 2) 
-        metodo = atoi(argv[argc-1]);
-    else
-        metodo = 0;
-
-    Matriz H = armar_nuevo_grafo(r);
-    // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
-    vector<int> mapeoGH(r.n, 0);
-    for(int i = 0;i < r.n;i++)
-        mapeoGH[i] = i*(r.capacidad+1);
+   if(argc > 2) 
+      metodo = atoi(argv[argc-1]);
+   else
+      metodo = 0;
+   
+   Matriz H = armar_nuevo_grafo(r);
+   // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
+   vector<int> mapeoGH(r.n, 0);
+   for(int i = 0;i < r.n;i++)
+      mapeoGH[i] = i*(r.capacidad+1);
 
     auto tiempo = camMinimo(r.n, metodo, H, mapeoGH);
-    escribir_tiempo(metodo, r.n, r.m, tiempo, path);
+    escribir_tiempo(metodo, r.n, r.m, tiempo, path,"");
 
     return 0;
 }

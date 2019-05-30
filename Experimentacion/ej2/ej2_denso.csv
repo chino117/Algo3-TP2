@@ -1,0 +1,271 @@
+Filename,n,m,Metodo,Tiempo
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,166.174
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,4.46632
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.2023
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.29628
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,164.857
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,2.20209
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.21533
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.68688
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,172.396
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,3.08544
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.36604
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.69999
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,176.457
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,2.22865
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,10.0798
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.6641
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,169.502
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,2.13208
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.49396
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,11.1036
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,166.785
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,4.4432
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.62974
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.64983
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,168.485
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,4.98571
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.26434
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,9.67524
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,170.078
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,2.69651
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,7.32848
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.41713
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra,175.467
+exp_random_2nodos_1ejes.txt,2,1,Dijkstra con cola de prioridad,2.24881
+exp_random_2nodos_1ejes.txt,2,1,Bellman-Ford,10.9421
+exp_random_2nodos_1ejes.txt,2,1,Floyd-Warshall,6.474
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1234.82
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,9.38386
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,36.6795
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.2751
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1453.47
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,10.609
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,45.0285
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.0361
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1208.7
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,11.4583
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,36.4047
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.3637
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1201.1
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,11.3308
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,35.4157
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.1347
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1219.31
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,8.62233
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,36.2099
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.5729
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1226.71
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,11.1257
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,37.0034
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.3801
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1215.16
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,8.55936
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,36.9167
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,21.909
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1200.63
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,8.5452
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,36.4374
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,21.7465
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra,1247.27
+exp_random_3nodos_3ejes.txt,3,3,Dijkstra con cola de prioridad,8.55146
+exp_random_3nodos_3ejes.txt,3,3,Bellman-Ford,39.2234
+exp_random_3nodos_3ejes.txt,3,3,Floyd-Warshall,22.1801
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,4930.5
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,20.6869
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,113.013
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,51.1481
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5297.57
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,21.6572
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,112.227
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,49.9807
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5044.54
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,21.8241
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,111.802
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,53.4662
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5018.47
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,21.031
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,111.217
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,52.6212
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5037.08
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,21.4959
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,114.034
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,52.5336
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5311.81
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,21.5017
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,123.719
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,50.9495
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5456.38
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,22.6975
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,109.278
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,49.8997
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5735.77
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,20.5672
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,110.842
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,50.683
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra,5756.22
+exp_random_4nodos_5ejes.txt,4,5,Dijkstra con cola de prioridad,20.6779
+exp_random_4nodos_5ejes.txt,4,5,Bellman-Ford,120.185
+exp_random_4nodos_5ejes.txt,4,5,Floyd-Warshall,50.0494
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,51.0113
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,293.136
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,107.886
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,44.4305
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,344.099
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,122.815
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,59.0156
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,361.582
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,127.92
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,56.2932
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,268.383
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,99.4312
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,43.7738
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,297.223
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,100.291
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,43.6811
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,284.911
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,127.243
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,59.8067
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,265.616
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,99.4021
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,43.4533
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,283.765
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,98.6136
+exp_random_5nodos_10ejes.txt,5,10,Dijkstra con cola de prioridad,44.629
+exp_random_5nodos_10ejes.txt,5,10,Bellman-Ford,286.864
+exp_random_5nodos_10ejes.txt,5,10,Floyd-Warshall,104.294
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,84.1849
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,603.791
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,170.244
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,79.3898
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,610.962
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,177.532
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,80.0503
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,656.687
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,195.916
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,93.2943
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,751.539
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,248.637
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,105.124
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,753.086
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,225.237
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,79.7069
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,637.804
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,200.594
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,83.676
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,562.431
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,174.438
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,81.7944
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,627.801
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,179.537
+exp_random_6nodos_14ejes.txt,6,14,Dijkstra con cola de prioridad,89.9354
+exp_random_6nodos_14ejes.txt,6,14,Bellman-Ford,656.103
+exp_random_6nodos_14ejes.txt,6,14,Floyd-Warshall,202.419
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,133.453
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1259.9
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,295.207
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,168.156
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1533.58
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,396.581
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,133.973
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1152.34
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,272.596
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,139.74
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1159.32
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,293.786
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,141.116
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1221.11
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,300.776
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,143.404
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1306.84
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,327.154
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,160.413
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1612.92
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,267.35
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,135.146
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1191.01
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,290.215
+exp_random_7nodos_18ejes.txt,7,18,Dijkstra con cola de prioridad,137.353
+exp_random_7nodos_18ejes.txt,7,18,Bellman-Ford,1289.11
+exp_random_7nodos_18ejes.txt,7,18,Floyd-Warshall,330.201
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,237.906
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2322.43
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,490.249
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,244.366
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2363.73
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,495.652
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,244.775
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2204.58
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,452.238
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,236.685
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2508.89
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,401.02
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,209.944
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2087.35
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,437.796
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,232.448
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2148.94
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,463.575
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,233.944
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2405.93
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,424.074
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,226.528
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2432.65
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,532.6
+exp_random_8nodos_26ejes.txt,8,26,Dijkstra con cola de prioridad,287.535
+exp_random_8nodos_26ejes.txt,8,26,Bellman-Ford,2879.82
+exp_random_8nodos_26ejes.txt,8,26,Floyd-Warshall,435.031
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,348.773
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,3878.6
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,730.731
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,387.34
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,3879.48
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,732.279
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,367.503
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,3855.5
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,736.329
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,311.049
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,4368.46
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,814.145
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,443.875
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,3755.05
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,705.126
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,337.901
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,3836.87
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,783.867
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,434.739
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,4601.66
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,882.785
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,426.569
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,4163.21
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,860.549
+exp_random_9nodos_33ejes.txt,9,33,Dijkstra con cola de prioridad,424.658
+exp_random_9nodos_33ejes.txt,9,33,Bellman-Ford,4608.02
+exp_random_9nodos_33ejes.txt,9,33,Floyd-Warshall,606.955
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,472.597
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5454.89
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,871.769
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,454.369
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5353.15
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,886.915
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,499.872
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5752.75
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,939.84
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,532.283
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,6019.64
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,845.193
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,495.753
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5572
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,886.34
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,474.875
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5651.69
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,941.549
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,471.653
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5689.85
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,989.849
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,507.796
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,6216.66
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,1042.85
+exp_random_10nodos_40ejes.txt,10,40,Dijkstra con cola de prioridad,566.644
+exp_random_10nodos_40ejes.txt,10,40,Bellman-Ford,5828.71
+exp_random_10nodos_40ejes.txt,10,40,Floyd-Warshall,975.538
