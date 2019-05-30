@@ -53,7 +53,7 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
         case 0:
             {
                 auto start_time = chrono::steady_clock::now();
-                res = dijkstra_1(n, H, mapeoGH);
+                res = dijkstra_arreglo(n, H, mapeoGH);
                 auto end_time = chrono::steady_clock::now();
                 tiempo = chrono::duration<double, milli>(end_time - start_time);
                 break;
@@ -61,7 +61,7 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
         case 1:
             {
                 auto start_time = chrono::steady_clock::now();
-                res = dijkstra_2(n, H, mapeoGH);
+                res = dijkstra_prioridad(n, H, mapeoGH);
                 auto end_time = chrono::steady_clock::now();
                 tiempo = chrono::duration<double, milli>(end_time - start_time);
                 break;
@@ -85,11 +85,11 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
             }
         case 4:
             {
-               //  res = dijkstra_1(n, H, mapeoGH);
-               //  cout<<"Djikstra-Arreglo"<<endl;
-               //  mostrar_output(n, res, mapeoGH);
+                res = dijkstra_arreglo(n, H, mapeoGH);
+                cout<<"Djikstra-Arreglo"<<endl;
+                mostrar_output(n, res, mapeoGH);
 
-                res = dijkstra_2(n, H, mapeoGH);
+                res = dijkstra_prioridad(n, H, mapeoGH);
                 cout<<"Djikstra-cola"<<endl;
                 mostrar_output(n, res, mapeoGH);
 
@@ -113,7 +113,7 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
     return tiempo;
 }
 
-Matriz armar_nuevo_grafo (DatosProblema data){
+Matriz armar_grafo_H(DatosProblema data){
     int capacidad = data.capacidad + 1; 
     Matriz res;
     resizeMatriz(res, data.n * capacidad, data.n * capacidad);
@@ -154,19 +154,19 @@ int main(int argc, char** argv){
     else
         r = leer_datos(cin);
    
-   if(argc > 2) 
-      metodo = atoi(argv[argc-1]);
-   else
-      metodo = 0;
-   
-   Matriz H = armar_nuevo_grafo(r);
-   // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
-   vector<int> mapeoGH(r.n, 0);
-   for(int i = 0;i < r.n;i++)
-      mapeoGH[i] = i*(r.capacidad+1);
+    if(argc > 2) 
+        metodo = atoi(argv[argc-1]);
+    else
+        metodo = 0;
+       
+    Matriz H = armar_grafo_H(r);
+    // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
+    vector<int> mapeoGH(r.n, 0);
+    for(int i = 0;i < r.n;i++)
+        mapeoGH[i] = i*(r.capacidad+1);
 
     auto tiempo = camMinimo(r.n, metodo, H, mapeoGH);
-    escribir_tiempo(metodo, r.n, r.m, tiempo, path,"");
+    escribir_tiempo(metodo, r.n, r.m, tiempo, path, "");
 
     return 0;
 }
