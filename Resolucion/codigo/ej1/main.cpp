@@ -89,7 +89,7 @@ void segmentar_aux(vector<eje>& E, shared_ptr<disjoint_set> U, int n, int k){
         // No me queda claro si la division deberia ser entre enteros o 
         // hay que castear a float, hacer la division y castearla a entero
         auto t_v = static_cast<unsigned int>((float)k/(float)U->size(componente_v));
-        auto t_u = static_cast<unsigned int>(float(k)/float(U->size(componente_u)));
+        auto t_u = static_cast<unsigned int>((float)k/float(U->size(componente_u)));
 
         if(componente_v != componente_u && w(o_q) <= internal_diff(componente_v, componente_u, w_max_x_comp, t_v, t_u)){
             U->unite(componente_v, componente_u);
