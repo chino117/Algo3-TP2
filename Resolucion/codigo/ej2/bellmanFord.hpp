@@ -34,8 +34,10 @@ vector<int> bellmanFord_aux(int s, const Matriz& W) {
         int c = get<0>(*it);
         int u = get<1>(*it);
         int v = get<2>(*it);
-        if(dist[u] + c < dist[v])
+        if(dist[u] + c < dist[v]){
             cout << "ERROR: TIENE CICLO NEGATIVO" << endl;
+            break;
+        }
     }
 
     return dist;
