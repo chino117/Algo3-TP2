@@ -82,9 +82,9 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
             }
         case 4:
             {
-                res = dijkstra_1(n, H, mapeoGH);
-                cout<<"Djikstra-Arreglo"<<endl;
-                mostrar_output(n, res, mapeoGH);
+               //  res = dijkstra_1(n, H, mapeoGH);
+               //  cout<<"Djikstra-Arreglo"<<endl;
+               //  mostrar_output(n, res, mapeoGH);
 
                 res = dijkstra_2(n, H, mapeoGH);
                 cout<<"Djikstra-cola"<<endl;
