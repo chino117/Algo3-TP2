@@ -52,16 +52,18 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
     switch(metodo){
         case 0:
             {
+                listaAdyacencia adyH = convertirAListaAdyacencia(H);
                 auto start_time = chrono::steady_clock::now();
-                res = dijkstra_arreglo(n, H, mapeoGH);
+                res = dijkstra_arreglo(n, H.size(), adyH, mapeoGH);
                 auto end_time = chrono::steady_clock::now();
                 tiempo = chrono::duration<double, milli>(end_time - start_time);
                 break;
             }
         case 1:
             {
+                listaAdyacencia adyH = convertirAListaAdyacencia(H);
                 auto start_time = chrono::steady_clock::now();
-                res = dijkstra_prioridad(n, H, mapeoGH);
+                res = dijkstra_prioridad(n, H.size(), adyH, mapeoGH);
                 auto end_time = chrono::steady_clock::now();
                 tiempo = chrono::duration<double, milli>(end_time - start_time);
                 break;
@@ -85,17 +87,19 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
             }
         case 4:
             {
-                res = dijkstra_arreglo(n, H, mapeoGH);
+
+                listaAdyacencia adyH = convertirAListaAdyacencia(H);
+                res = dijkstra_arreglo(n, H.size(), adyH, mapeoGH);
                 cout<<"Djikstra-Arreglo"<<endl;
                 mostrar_output(n, res, mapeoGH);
 
-                res = dijkstra_prioridad(n, H, mapeoGH);
+                res = dijkstra_prioridad(n, H.size(), adyH, mapeoGH);
                 cout<<"Djikstra-cola"<<endl;
                 mostrar_output(n, res, mapeoGH);
 
-                res = bellmanFord(n, H, mapeoGH);
-                cout<<"Bellman-Ford"<<endl;
-                mostrar_output(n, res, mapeoGH);
+                /* res = bellmanFord(n, H, mapeoGH); */
+                /* cout<<"Bellman-Ford"<<endl; */
+                /* mostrar_output(n, res, mapeoGH); */
 
                 res = floyd(H);
                 cout<<"Floyd-Warshall"<<endl;
@@ -158,8 +162,9 @@ int main(int argc, char** argv){
         metodo = atoi(argv[argc-1]);
     else
         metodo = 0;
-       
+
     Matriz H = armar_grafo_H(r);
+
     // Armo mapeo de vertices de G a los de H que sean iniciales. Ej: de 1 a (1, 0), de 2 a (2, 0), etc
     vector<int> mapeoGH(r.n, 0);
     for(int i = 0;i < r.n;i++)

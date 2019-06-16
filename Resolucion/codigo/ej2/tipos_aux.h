@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <tuple>
 
 using namespace std;
 
@@ -26,6 +27,66 @@ void resizeMatrizRes( MatrizRes &m , const int fils , const int cols )
     for(auto &it : m)
         it.resize(cols);
 }
+
+typedef vector<vector<tuple<int, int>>> listaAdyacencia;
+
+listaAdyacencia convertirAListaAdyacencia(const Matriz& m, int default_val = infty){
+    vector<tuple<int, int>> vacio;
+    listaAdyacencia res(m.size(), vacio);
+    for(unsigned int i = 0;i < m.size();i++)
+        for(unsigned int j = 0;j < m.size();j++)
+            if(i != j && m[i][j] != default_val)
+                res[i].push_back({j, m[i][j]});
+    return res;
+}
+
+void mostrarListaAdyacencia(const listaAdyacencia& a){
+    int f = 0;
+    for(auto& i : a){
+        cout<<f<<": ";
+        for(auto& j : i)
+            cout<<"("<<get<0>(j)<<", "<<get<1>(j)<<")"<<" ";
+        cout<<endl;
+        f++;
+    }
+}
+
+/* class Costos{ */
+/*     public: */
+/*         int& operator[](unsigned int i){ */
+/*             if(usa_matriz) */
+/*                 return (*m)[i]; */
+/*             else */
+/*                 return get<1>((*adj)[i]); */
+/*         }; */
+/*         int& operator[](unsigned int i){} const{ */
+/*             if(usa_matriz) */
+/*                 return (*m)[i]; */
+/*             else */
+/*                 return get<1>((*adj)[i]); */
+/*         }; */
+/*     private: */
+/*         Costos(vector<int>* v):usa_matriz(true),m(v),adj(nullptr){}; */
+/*         Costos(vector<tuple<int, int>>* v):usa_matriz(false),m(nullptr),adj(v){}; */
+/*         bool usa_matriz; */
+/*         vector<int>* m; */
+/*         vector<tuple<int, int>>* adj; */
+/*         friend class Grafo; */
+/* } */
+
+/* class Grafo{ */
+/*     public: */
+/*         Grafo(unsigned int n); */
+/*         vector<int> vecindario(unsigned int i) const; */
+/*         Costos operator[](unsigned int i){ */
+/*         }; */
+/*         Costos operator[](unsigned int i) const; */
+/*     private: */
+/*         unsigned int n; */
+/*         unsigned int m; */
+/*         unique_ptr<Matriz> m; */
+/*         unique_ptr<listaAdyacencia> adj; */
+/* }; */
 
 // Estructura que devuelven los algoritmos pedidos
 // Contiene los caminos minimos y metodo utilizado
