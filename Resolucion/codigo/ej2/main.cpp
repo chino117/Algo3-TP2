@@ -70,8 +70,9 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
             }
         case 2:
             {
+                listaAdyacencia adyH = convertirAListaAdyacencia(H);
                 auto start_time = chrono::steady_clock::now();
-                res = bellmanFord(n, H, mapeoGH);
+                res = bellmanFord(n, H.size(), adyH, mapeoGH);
                 auto end_time = chrono::steady_clock::now();
                 tiempo = chrono::duration<double, milli>(end_time - start_time);
                 break;
@@ -97,9 +98,9 @@ chrono::duration<double, milli> camMinimo(int n, int metodo, const Matriz& H, co
                 cout<<"Djikstra-cola"<<endl;
                 mostrar_output(n, res, mapeoGH);
 
-                /* res = bellmanFord(n, H, mapeoGH); */
-                /* cout<<"Bellman-Ford"<<endl; */
-                /* mostrar_output(n, res, mapeoGH); */
+                res = bellmanFord(n, H.size(), adyH, mapeoGH);
+                cout<<"Bellman-Ford"<<endl; 
+                mostrar_output(n, res, mapeoGH);
 
                 res = floyd(H);
                 cout<<"Floyd-Warshall"<<endl;

@@ -7,12 +7,6 @@
 
 using namespace std;
 
-struct vector_element_t{
-	int peso;
-	int origen;
-	int destino;
-};
-
 int vector_top_index(vector<vector_element_t> values){
     int result = -1;
     int min;
@@ -126,7 +120,6 @@ vector<int> dijkstra_aux_prioridad_adyacencia(int s, const listaAdyacencia& W)
         S.pop();
         int c = get<0>(t);
         int u = get<2>(t);
-        // int v = get<1>(t); // no se usa
 
         if(res[u] == infty){
             res[u] = -c;

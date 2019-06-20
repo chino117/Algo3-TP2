@@ -13,6 +13,28 @@ typedef vector<vector<int>> Matriz;
 typedef vector<vector<tuple<int,int,int>>> MatrizRes;
 const int infty = 10e5;
 
+struct vector_element_t{
+    int peso;
+    int origen;
+    int destino;
+};
+
+// Estructura que devuelven los algoritmos pedidos
+// Contiene los caminos minimos y metodo utilizado
+struct ResultadoProblema{
+    unsigned int metodo;
+    Matriz g;
+};
+
+// Estructura que contiene los datos de entrada del problema
+struct DatosProblema
+{
+    int capacidad = 60;
+    int n; //Cantidad de ciudades
+    int m; //Cantidad de rutas
+    vector<int> costoXciudad;
+    Matriz litrosXeje;
+};
 
 void resizeMatriz( Matriz &m , const int fils , const int cols )
 {
@@ -50,60 +72,6 @@ void mostrarListaAdyacencia(const listaAdyacencia& a){
         f++;
     }
 }
-
-/* class Costos{ */
-/*     public: */
-/*         int& operator[](unsigned int i){ */
-/*             if(usa_matriz) */
-/*                 return (*m)[i]; */
-/*             else */
-/*                 return get<1>((*adj)[i]); */
-/*         }; */
-/*         int& operator[](unsigned int i){} const{ */
-/*             if(usa_matriz) */
-/*                 return (*m)[i]; */
-/*             else */
-/*                 return get<1>((*adj)[i]); */
-/*         }; */
-/*     private: */
-/*         Costos(vector<int>* v):usa_matriz(true),m(v),adj(nullptr){}; */
-/*         Costos(vector<tuple<int, int>>* v):usa_matriz(false),m(nullptr),adj(v){}; */
-/*         bool usa_matriz; */
-/*         vector<int>* m; */
-/*         vector<tuple<int, int>>* adj; */
-/*         friend class Grafo; */
-/* } */
-
-/* class Grafo{ */
-/*     public: */
-/*         Grafo(unsigned int n); */
-/*         vector<int> vecindario(unsigned int i) const; */
-/*         Costos operator[](unsigned int i){ */
-/*         }; */
-/*         Costos operator[](unsigned int i) const; */
-/*     private: */
-/*         unsigned int n; */
-/*         unsigned int m; */
-/*         unique_ptr<Matriz> m; */
-/*         unique_ptr<listaAdyacencia> adj; */
-/* }; */
-
-// Estructura que devuelven los algoritmos pedidos
-// Contiene los caminos minimos y metodo utilizado
-struct ResultadoProblema{
-    unsigned int metodo;
-    Matriz g;
-};
-
-// Estructura que contiene los datos de entrada del problema
-struct DatosProblema
-{
-	int capacidad = 60;
-	int n; //Cantidad de ciudades
-	int m; //Cantidad de rutas
-	vector<int> costoXciudad;
-	Matriz litrosXeje;
-};
 
 // Operaciones de DatosProblema
 istream& operator>>(istream& is, DatosProblema& d)
@@ -156,5 +124,41 @@ DatosProblema leer_datos(istream& is)
     return res;
 }
 
+/* class Costos{ */
+/*     public: */
+/*         int& operator[](unsigned int i){ */
+/*             if(usa_matriz) */
+/*                 return (*m)[i]; */
+/*             else */
+/*                 return get<1>((*adj)[i]); */
+/*         }; */
+/*         int& operator[](unsigned int i){} const{ */
+/*             if(usa_matriz) */
+/*                 return (*m)[i]; */
+/*             else */
+/*                 return get<1>((*adj)[i]); */
+/*         }; */
+/*     private: */
+/*         Costos(vector<int>* v):usa_matriz(true),m(v),adj(nullptr){}; */
+/*         Costos(vector<tuple<int, int>>* v):usa_matriz(false),m(nullptr),adj(v){}; */
+/*         bool usa_matriz; */
+/*         vector<int>* m; */
+/*         vector<tuple<int, int>>* adj; */
+/*         friend class Grafo; */
+/* } */
+
+/* class Grafo{ */
+/*     public: */
+/*         Grafo(unsigned int n); */
+/*         vector<int> vecindario(unsigned int i) const; */
+/*         Costos operator[](unsigned int i){ */
+/*         }; */
+/*         Costos operator[](unsigned int i) const; */
+/*     private: */
+/*         unsigned int n; */
+/*         unsigned int m; */
+/*         unique_ptr<Matriz> m; */
+/*         unique_ptr<listaAdyacencia> adj; */
+/* }; */
 
 #endif
