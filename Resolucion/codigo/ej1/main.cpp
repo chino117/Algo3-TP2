@@ -29,7 +29,7 @@ string nombres_metodos[3] = {
                             };
 
 void escribir_tiempo(const string& filename, milisegundos medicion, int k, int metodo){
-    string path = "ej1_tiempos.csv";
+    string path = "ej1_tiempos_sin_outliers.csv";
     fstream f;
     f.open(path, fstream::out | fstream::app);
 
