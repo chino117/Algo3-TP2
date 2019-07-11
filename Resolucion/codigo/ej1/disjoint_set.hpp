@@ -117,11 +117,23 @@ class disjoint_set_arbol_optimizado : public disjoint_set{
                 }
             }
         }
-        virtual unsigned int find(unsigned int i){
+        /*virtual unsigned int find(unsigned int i){
             if(arboles[i] != i){
                 arboles[i] = find(arboles[i]);
             }
             return arboles[i];
+        }*/
+        virtual unsigned int find(unsigned int i){
+            unsigned int nodo = i;
+            while(arboles[nodo] != nodo)
+				nodo = arboles[nodo];
+			unsigned int it = i;
+			while(arboles[it] != nodo){
+				unsigned int it_sig = arboles[it];
+				arboles[it] = nodo;
+				it = it_sig;
+			}
+			return nodo;
         }
         virtual unsigned int size(unsigned int c){
             return tam_arbs[c];
