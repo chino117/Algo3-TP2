@@ -359,3 +359,33 @@ test1.jpg,DisjointSet con arbol,6000,11.1947
 test2.png,DisjointSet con arbol,6000,10.3985
 test1.jpg,DisjointSet con arbol y Path Compression,6000,14.5055
 test2.png,DisjointSet con arbol y Path Compression,6000,14.114
+sintetico_1_320x180.png,DisjointSet con arbol,0,8.75225
+sintetico_1_640x360.png,DisjointSet con arbol,0,34.287
+sintetico_1_1280x720.png,DisjointSet con arbol,0,135.974
+sintetico_1_1920x1080.png,DisjointSet con arbol,0,297.831
+obelisco.jpeg,DisjointSet con arbol,0,4516.99
+sintetico_1_320x180.png,DisjointSet con arbol y Path Compression,0,9.79694
+sintetico_1_640x360.png,DisjointSet con arbol y Path Compression,0,37.8929
+sintetico_1_1280x720.png,DisjointSet con arbol y Path Compression,0,151.913
+sintetico_1_1920x1080.png,DisjointSet con arbol y Path Compression,0,334.504
+obelisco.jpeg,DisjointSet con arbol y Path Compression,0,4924.66
+sintetico_1_320x180.png,DisjointSet con arbol,500,8.73724
+sintetico_1_640x360.png,DisjointSet con arbol,500,33.9111
+sintetico_1_1280x720.png,DisjointSet con arbol,500,134.407
+sintetico_1_1920x1080.png,DisjointSet con arbol,500,298.649
+obelisco.jpeg,DisjointSet con arbol,500,6618.94
+sintetico_1_320x180.png,DisjointSet con arbol y Path Compression,500,9.30269
+sintetico_1_640x360.png,DisjointSet con arbol y Path Compression,500,38.3871
+sintetico_1_1280x720.png,DisjointSet con arbol y Path Compression,500,151.069
+sintetico_1_1920x1080.png,DisjointSet con arbol y Path Compression,500,334.948
+obelisco.jpeg,DisjointSet con arbol y Path Compression,500,5815.41
+sintetico_1_320x180.png,DisjointSet con arbol,500,8.80039
+sintetico_1_640x360.png,DisjointSet con arbol,500,34.2863
+sintetico_1_1280x720.png,DisjointSet con arbol,500,134.337
+sintetico_1_1920x1080.png,DisjointSet con arbol,500,297.043
+obelisco.jpeg,DisjointSet con arbol,500,6612.06
+sintetico_1_320x180.png,DisjointSet con arbol y Path Compression,500,9.31955
+sintetico_1_640x360.png,DisjointSet con arbol y Path Compression,500,48.7899
+sintetico_1_1280x720.png,DisjointSet con arbol y Path Compression,500,150.595
+sintetico_1_1920x1080.png,DisjointSet con arbol y Path Compression,500,337.982
+obelisco.jpeg,DisjointSet con arbol y Path Compression,500,5804.71
