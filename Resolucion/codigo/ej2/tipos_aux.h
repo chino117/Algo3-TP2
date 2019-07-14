@@ -10,7 +10,6 @@
 using namespace std;
 
 typedef vector<vector<int>> Matriz;
-typedef vector<vector<tuple<int,int,int>>> MatrizRes;
 const int infty = 10e5;
 
 struct vector_element_t{
@@ -43,13 +42,6 @@ void resizeMatriz( Matriz &m , const int fils , const int cols )
         it.resize(cols, infty);
 }
 
-void resizeMatrizRes( MatrizRes &m , const int fils , const int cols )
-{
-    m.resize(fils);
-    for(auto &it : m)
-        it.resize(cols);
-}
-
 typedef vector<vector<tuple<int, int>>> listaAdyacencia;
 
 listaAdyacencia convertirAListaAdyacencia(const Matriz& m, int default_val = infty){
@@ -76,14 +68,12 @@ void mostrarListaAdyacencia(const listaAdyacencia& a){
 // Operaciones de DatosProblema
 istream& operator>>(istream& is, DatosProblema& d)
 {
-
     is>>d.n >> d.m;
     if (d.n < 0 || d.m < 0)
     {
         cout<<"ERROR: Valores asignados a DatosProblema invalidos"<<endl;
         return is;
     }
-
     d.costoXciudad.resize(d.n);
     resizeMatriz(d.litrosXeje, d.n, d.n);
 
@@ -123,42 +113,5 @@ DatosProblema leer_datos(istream& is)
     is>>res;
     return res;
 }
-
-/* class Costos{ */
-/*     public: */
-/*         int& operator[](unsigned int i){ */
-/*             if(usa_matriz) */
-/*                 return (*m)[i]; */
-/*             else */
-/*                 return get<1>((*adj)[i]); */
-/*         }; */
-/*         int& operator[](unsigned int i){} const{ */
-/*             if(usa_matriz) */
-/*                 return (*m)[i]; */
-/*             else */
-/*                 return get<1>((*adj)[i]); */
-/*         }; */
-/*     private: */
-/*         Costos(vector<int>* v):usa_matriz(true),m(v),adj(nullptr){}; */
-/*         Costos(vector<tuple<int, int>>* v):usa_matriz(false),m(nullptr),adj(v){}; */
-/*         bool usa_matriz; */
-/*         vector<int>* m; */
-/*         vector<tuple<int, int>>* adj; */
-/*         friend class Grafo; */
-/* } */
-
-/* class Grafo{ */
-/*     public: */
-/*         Grafo(unsigned int n); */
-/*         vector<int> vecindario(unsigned int i) const; */
-/*         Costos operator[](unsigned int i){ */
-/*         }; */
-/*         Costos operator[](unsigned int i) const; */
-/*     private: */
-/*         unsigned int n; */
-/*         unsigned int m; */
-/*         unique_ptr<Matriz> m; */
-/*         unique_ptr<listaAdyacencia> adj; */
-/* }; */
 
 #endif
